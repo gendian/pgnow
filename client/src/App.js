@@ -13,7 +13,6 @@ import Leaders from "./components/leaders";
 import "./App.css";
 
 function App() {
-  var arraysToDisplay = [0, 1];
   return (
     <div className="App">
       {/*
