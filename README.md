@@ -1,0 +1,1 @@
+Run `npm start` in client directory and separately run `npm start` in backend directory (after you have `npm install`ed both)
