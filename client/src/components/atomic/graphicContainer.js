@@ -1,5 +1,4 @@
 import React from "react";
-import { FaLink } from 'react-icons/fa';
 
 export default function GraphicContainer(props) {
     const textToShow = props.textToShow ? props.textToShow : "text to show";

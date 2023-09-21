@@ -14,7 +14,7 @@ export default function Mons(props) {
     monsToShow.forEach(graphicMonList);
 
     var mons = 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
             {graphicMons}
         </div>;
     return mons;

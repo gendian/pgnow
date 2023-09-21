@@ -9,6 +9,7 @@ export default function GraphicMon(props) {
     monToShow = monToShow.replace("galarian", "");
     monToShow = monToShow.replace("alolan", "");
     monToShow = monToShow.replace(".", "-");
+    monToShow = monToShow.replace("'", "");
     monToShow = monToShow.replace(/\s/g,'');
     monToShow = monToShow.replace(/ *\([^)]*\) */g, "");
 

@@ -8,8 +8,9 @@ import Researches from "./components/researches";
 import Raids from "./components/raids";
 import ShadowRaids from "./components/shadowRaids";
 import Leaders from "./components/leaders";
-import GraphicContainer from "./components/atomic/graphicContainer";
-import Mons from "./components/atomic/mons";
+import SourceLink from "./components/atomic/sourceLink";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 //import Loading from "./components/loading";
 import "./App.css";
@@ -23,13 +24,45 @@ function App() {
       </header>
       */}
       <div class="App-body">
-        <Raids/>
-        <ShadowRaids/>
-        <Leaders/>
-        <Eggs/>
-        <CurrentEvents/>      
-        <FutureEvents/>
-        <Researches/>
+      <Tabs forceRenderTabPanel={true}>
+        <TabList>
+          <Tab>Raids</Tab>
+          <Tab>Sh.Raids</Tab>
+          <Tab>Leaders</Tab>
+          <Tab>Eggs</Tab>
+          <Tab>Events</Tab>
+          <Tab>Researches</Tab>
+          <Tab>Future Events</Tab>
+        </TabList>
+        <TabPanel>
+          <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/boss/"/>
+          <Raids/>
+        </TabPanel>
+        <TabPanel>
+          <SourceLink textToShow="Credit to Pokemon Go Fandom" linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
+          <ShadowRaids/>
+        </TabPanel>
+        <TabPanel>
+          <SourceLink textToShow="Credit to Pokemon Go Fandom" linkToShow="https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders"/>
+          <Leaders/>
+        </TabPanel>
+        <TabPanel>
+          <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/eggs/"/>
+          <Eggs/>
+        </TabPanel>
+        <TabPanel>
+          <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/events/"/>
+          <CurrentEvents/>
+        </TabPanel>
+        <TabPanel>
+          <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/research/"/>
+          <Researches/>
+        </TabPanel>
+        <TabPanel>
+          <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/events/"/>
+          <FutureEvents/>
+        </TabPanel>
+      </Tabs>
       </div>
     </div>
   );

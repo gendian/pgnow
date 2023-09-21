@@ -1,7 +1,6 @@
 import React from "react";
-import Collapsible from 'react-collapsible';
 import Countdown from 'react-countdown';
-import { FaLink } from 'react-icons/fa';
+import GraphicContainer from "./atomic/graphicContainer";
 
 export default function FutureEvents() {
 
@@ -42,12 +41,12 @@ export default function FutureEvents() {
         });
     }
 
-    var eventDiv =  <div class="section-container">
-                        <Collapsible trigger="Collapse &#9660;" open={true}>
-                            <h3>Future Events <a target="_blank" href="https://leekduck.com/events/"><FaLink/></a></h3>
-                            <ul>{futureEvents}</ul>
-                        </Collapsible> 
-                    </div>
+    const event_element = 
+    <div>
+        <GraphicContainer textToShow="Upcoming">
+            <ul>{futureEvents}</ul>
+        </GraphicContainer>
+    </div>;
 
-    return eventDiv;
+    return event_element;
 }

@@ -11,6 +11,9 @@ ul {
 
 .App {
   text-align: left;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  background: url("./assets/images/synapses.png");
 }
 
 .App-logo {
@@ -25,12 +28,11 @@ ul {
 }
 
 .App-header, .App-body {
-  background-color: #0f224a;
+  /*background-color: #0f224a;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(5px + 1vmin);
   color: white;
   padding-left: 20px;
@@ -46,7 +48,7 @@ ul {
 }
 
 .countdown-soon {
-  color:#fc578f;
+  color:#271fb3;
 }
 
 /* --- graphic container --- */
@@ -55,7 +57,7 @@ ul {
   margin: 10px;
 }
 .graphic-container-icon {
-  background: url("./assets/images/graphic-container-icon.png") no-repeat center center;
+  background: url("./assets/images/pokeball.png") no-repeat center center;
   width: 40px;
   height: 40px;
   background-size: contain;
@@ -83,6 +85,12 @@ ul {
   background-image: linear-gradient(to left, #d363c5, #7f42dd);
   width: 100%;
 }
+.graphic-container-inner > * {
+  margin-left: 20px;
+}
+.graphic-container-inner > ul > li {
+  margin-top: 5px;
+}
 
 /* --- graphic mon --- */
 .graphic-mon-outer {
@@ -92,7 +100,7 @@ ul {
   margin: auto;
 }
 .graphic-mon-background {  
-  background: url("./assets/images/graphic-container-icon.png") no-repeat center center;
+  background: url("./assets/images/pokeball-background.png") no-repeat center center;
   width: 40px;
   height: 40px;
   background-size: contain;
@@ -113,17 +121,34 @@ ul {
   text-align: center;
 }
 
-.section-container {
-  background-color: #2a242c;
-  border-style: solid;
-  border-color: white;
-  border-width: 1px;
-  padding-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 90vw;
-  margin-top: 10px;
-  margin-bottom: 10px;
+/* --- Tabs --- */
+.react-tabs__tab {
+  padding: 8px 4px;
+  margin: 1px;
+}
+.react-tabs__tab.react-tabs__tab--selected {
+  padding: 8px 4px;
+  border-radius: 10px;
+  background-color: #7f42dd;
+  background: #7f42dd;
+}
+.react-tabs__tab:focus:after {  
+  content: '';
+  position: absolute;
+  height: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff00;
+}
+.react-tabs__tab-list {
+  border-bottom: 0px;
+}
+
+.source-container > p {  
+  background-image: linear-gradient(135deg, #271fb3, rgba(255,0,0,0));
+  padding: 10px;
+  margin-left: 10px;
 }
 
 @keyframes App-logo-spin {

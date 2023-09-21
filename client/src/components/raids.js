@@ -1,6 +1,4 @@
 import React from "react";
-import Collapsible from 'react-collapsible';
-import { FaLink } from 'react-icons/fa';
 import GraphicContainer from "./atomic/graphicContainer";
 import Mons from "./atomic/mons";
 
@@ -35,7 +33,7 @@ export default function Raids() {
         });
     }
 
-    const columns = 
+    const raid_element = 
         <div>
             <GraphicContainer textToShow="One Star Raids">
                 <Mons monsToShow={onestar}/>
@@ -51,5 +49,5 @@ export default function Raids() {
             </GraphicContainer>
         </div>;
 
-    return columns;
+    return raid_element;
 }

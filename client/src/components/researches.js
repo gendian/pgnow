@@ -1,6 +1,5 @@
 import React from "react";
-import Collapsible from 'react-collapsible';
-import { FaLink } from 'react-icons/fa';
+import GraphicContainer from "./atomic/graphicContainer";
 
 export default function Researches() {
 
@@ -38,27 +37,26 @@ export default function Researches() {
                 otherList.push(researchLi);
             }
         });
-    }
-    
-    var catch_element = <div><h4>Catch</h4><ul>{catchList}</ul></div>;
-    var throw_element = <div><h4>Throw</h4><ul>{throwList}</ul></div>;
-    var interact_element = <div><h4>Interact</h4><ul>{interactList}</ul></div>;
-    var explore_element = <div><h4>Explore</h4><ul>{exploreList}</ul></div>;
-    var other_element = <div><h4>Other</h4><ul>{otherList}</ul></div>;
+    }    
 
-    const columns = 
-        <div class="section-container">
-            <Collapsible trigger="Collapse &#9660;" open={true}>
-                <h3>Researches <a target="_blank" href="https://leekduck.com/research/"><FaLink/></a></h3>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gridGap: 20 }}>
-                    <div>{catch_element}</div>        
-                    <div>{throw_element}</div>
-                    <div>{interact_element}</div>
-                    <div>{explore_element}</div>
-                    <div>{other_element}</div>
-                </div>
-            </Collapsible>
-        </div>;
+    const research_element = 
+    <div>
+        <GraphicContainer textToShow="Catch">
+            <ul>{catchList}</ul>
+        </GraphicContainer>
+        <GraphicContainer textToShow="Throw">
+            <ul>{throwList}</ul>
+        </GraphicContainer>
+        <GraphicContainer textToShow="Interact">
+            <ul>{interactList}</ul>
+        </GraphicContainer>
+        <GraphicContainer textToShow="Explore">
+            <ul>{exploreList}</ul>
+        </GraphicContainer>
+        <GraphicContainer textToShow="Misc.">
+            <ul>{otherList}</ul>
+        </GraphicContainer>
+    </div>;
 
-    return columns;
+    return research_element;
 }
