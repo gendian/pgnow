@@ -12,13 +12,11 @@ export default function Leaders() {
           .then((data) => setLeaders(Object.values(data)));
     }, []);
 
-    console.log(leaders);
     if (leaders !== null) {
         var arlo = leaders[0];
         var cliff = leaders[1];
         var sierra = leaders[2];
 
-        console.log(arlo.secondMons);
         var arlo_element = 
             <div>
                 <h4>Arlo</h4>

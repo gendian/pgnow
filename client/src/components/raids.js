@@ -1,6 +1,8 @@
 import React from "react";
 import Collapsible from 'react-collapsible';
 import { FaLink } from 'react-icons/fa';
+import GraphicContainer from "./atomic/graphicContainer";
+import Mons from "./atomic/mons";
 
 export default function Raids() {
 
@@ -22,33 +24,31 @@ export default function Raids() {
     if (parsed_raids !== null && parsed_raids !== undefined) {
         parsed_raids.forEach(raid => {
             if (raid.tier.includes("1")) {
-                onestar.push(<li>{raid.name}</li>);
+                onestar.push(raid.name);
             } else if (raid.tier.includes("3")) {
-                threestar.push(<li>{raid.name}</li>);
+                threestar.push(raid.name);
             } else if (raid.tier.includes("5")) {
-                fivestar.push(<li>{raid.name}</li>);
-            } else /*if (raid.tier.includes("mega"))*/ {
-                mega.push(<li>{raid.name}</li>);
+                fivestar.push(raid.name);
+            } else {
+                mega.push(raid.name);
             }
         });
     }
 
-    var onestar_element = <div><h4>Tier 1</h4><ul>{onestar}</ul></div>;
-    var threestar_element = <div><h4>Tier 3</h4><ul>{threestar}</ul></div>;
-    var fivestar_element = <div><h4>Tier 5</h4><ul>{fivestar}</ul></div>;
-    var mega_element = <div><h4>Mega/Primal</h4><ul>{mega}</ul></div>;
-
     const columns = 
-        <div class="section-container">
-            <Collapsible trigger="Collapse &#9660;" open={true}>
-                <h3>Raids <a target="_blank" href="https://leekduck.com/boss/"><FaLink/></a></h3>    
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 20 }}>
-                    <div>{onestar_element}</div>
-                    <div>{threestar_element}</div>
-                    <div>{fivestar_element}</div>
-                    <div>{mega_element}</div>
-                </div>
-            </Collapsible>
+        <div>
+            <GraphicContainer textToShow="One Star Raids">
+                <Mons monsToShow={onestar}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Three Star Raids">
+                <Mons monsToShow={threestar}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Five Star Raids">
+                <Mons monsToShow={fivestar}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Mega Raids">
+                <Mons monsToShow={mega}/>
+            </GraphicContainer>
         </div>;
 
     return columns;

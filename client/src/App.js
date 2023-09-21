@@ -8,6 +8,8 @@ import Researches from "./components/researches";
 import Raids from "./components/raids";
 import ShadowRaids from "./components/shadowRaids";
 import Leaders from "./components/leaders";
+import GraphicContainer from "./components/atomic/graphicContainer";
+import Mons from "./components/atomic/mons";
 
 //import Loading from "./components/loading";
 import "./App.css";

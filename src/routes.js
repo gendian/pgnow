@@ -11,6 +11,8 @@ router.get('/commit/:user/:reponame', controllers.getCommit)
 
 router.get('/content/:contentType', controllers.getContent) // eggs, events, raids, or research DEPRECATED
 
+router.get('/pokeapi/:mon', controllers.getPokeAPI) // PokeAPI*/
+
 router.get('/shadow_raids', controllers.getShadows) // shadow raids
 router.get('/events', controllers.getEvents) // events
 router.get('/raids', controllers.getRaids) // raids

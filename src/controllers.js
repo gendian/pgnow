@@ -84,4 +84,18 @@ const getLeaders= async function (req, res) {
     res.json(get_leaders());
 }
 
-module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders }
+const getPokeAPI= async function (req, res) {
+    const mon = req.params.mon;
+    const options = 'https://pokeapi.co/api/v2/pokemon/' + mon;
+
+    console.log(options);
+
+    https.get(options, function (apiResponse) {
+        apiResponse.pipe(res);
+    }).on('error', (e) => {
+        console.log(e);
+        res.status(500).send(constants.error_message);
+    })
+}
+
+module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders, getPokeAPI }
