@@ -1,5 +1,6 @@
 import React from "react";
 import Collapsible from 'react-collapsible';
+import { FaLink } from 'react-icons/fa';
 
 export default function Eggs() {
 
@@ -43,7 +44,7 @@ export default function Eggs() {
     const columns = 
         <div class="section-container">
             <Collapsible trigger="Collapse &#9660;" open={true}>
-                <h3>Eggs</h3>
+                <h3>Eggs <a target="_blank" href="https://leekduck.com/eggs/"><FaLink/></a></h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gridGap: 20 }}>
                     <div>{twok_element}</div>
                     <div>{fivek_element}</div>

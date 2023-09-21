@@ -1,5 +1,9 @@
 
 
+a {
+  color: #24b2ff;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -21,7 +25,7 @@ ul {
 }
 
 .App-header, .App-body {
-  background-color: #282c34;
+  background-color: #0f224a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,21 +46,20 @@ ul {
 }
 
 .countdown-soon {
-  color:red;
+  color:#fc578f;
 }
 
 .section-container {
-  background-color: rgb(75, 77, 114);
+  background-color: #2a242c;
   border-style: solid;
   border-color: white;
   border-width: 1px;
   padding-left: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-  overflow-y: auto;
-  max-height: 250px;
-  min-height: 249px;
+  width: 90vw;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 @keyframes App-logo-spin {

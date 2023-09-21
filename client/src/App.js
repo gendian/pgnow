@@ -20,17 +20,13 @@ function App() {
         <Loading/>
       </header>
       */}
-      <div class="App-body">        
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
-          <Eggs/>
-          <Raids/>
-          <ShadowRaids/>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
-          <CurrentEvents/>        
-          <FutureEvents/>
-          <Leaders/>
-        </div>
+      <div class="App-body">
+        <Raids/>
+        <ShadowRaids/>
+        <Leaders/>
+        <Eggs/>
+        <CurrentEvents/>      
+        <FutureEvents/>
         <Researches/>
       </div>
     </div>

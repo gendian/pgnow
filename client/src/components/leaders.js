@@ -1,5 +1,6 @@
 import React from "react";
 import Collapsible from 'react-collapsible';
+import { FaLink } from 'react-icons/fa';
 
 export default function Leaders() {
 
@@ -43,7 +44,8 @@ export default function Leaders() {
         const columns = 
             <div class="section-container">
                 <Collapsible trigger="Collapse &#9660;" open={true}>
-                    <h3>Rocker GO Leaders</h3>
+                    <h3>Rocket GO Leaders <a target="_blank" href="https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders"><FaLink/></a></h3>
+                    
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                         <div>{arlo_element}</div>
                         <div>{cliff_element}</div>

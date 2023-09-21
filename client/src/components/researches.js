@@ -1,5 +1,6 @@
 import React from "react";
 import Collapsible from 'react-collapsible';
+import { FaLink } from 'react-icons/fa';
 
 export default function Researches() {
 
@@ -48,7 +49,7 @@ export default function Researches() {
     const columns = 
         <div class="section-container">
             <Collapsible trigger="Collapse &#9660;" open={true}>
-                <h3>Researches</h3>
+                <h3>Researches <a target="_blank" href="https://leekduck.com/research/"><FaLink/></a></h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gridGap: 20 }}>
                     <div>{catch_element}</div>        
                     <div>{throw_element}</div>

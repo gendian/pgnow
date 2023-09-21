@@ -1,6 +1,7 @@
 import React from "react";
 import Collapsible from 'react-collapsible';
 import Countdown from 'react-countdown';
+import { FaLink } from 'react-icons/fa';
 
 export default function FutureEvents() {
 
@@ -41,14 +42,12 @@ export default function FutureEvents() {
         });
     }
 
-    var eventDiv = <div>
-                        <div class="section-container">
-                            <Collapsible trigger="Collapse &#9660;" open={true}>
-                                <h3>Future Events</h3>
-                                <ul>{futureEvents}</ul>
-                            </Collapsible> 
-                        </div>      
-                    </div>;
+    var eventDiv =  <div class="section-container">
+                        <Collapsible trigger="Collapse &#9660;" open={true}>
+                            <h3>Future Events <a target="_blank" href="https://leekduck.com/events/"><FaLink/></a></h3>
+                            <ul>{futureEvents}</ul>
+                        </Collapsible> 
+                    </div>
 
     return eventDiv;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Collapsible from 'react-collapsible';
+import { FaLink } from 'react-icons/fa';
 
 export default function ShadowRaids() {
 
@@ -33,7 +34,7 @@ export default function ShadowRaids() {
     const columns = 
         <div class="section-container">
             <Collapsible trigger="Collapse &#9660;" open={true}>
-                <h3>Shadow Raids</h3>
+                <h3>Shadow Raids <a target="_blank" href="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"><FaLink/></a></h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gridGap: 20 }}>
                     <div>{onestar_element}</div>
                     <div>{threestar_element}</div>
