@@ -1,16 +1,7 @@
 import React from "react";
 
 export default function GraphicMon(props) {
-    const textToShow = props.monToShow;
-    var monToShow = props.monToShow ? props.monToShow : "pikachu";
-
-    // REAL API
-    /*const [monImg, setMonImg] = React.useState(null);
-    React.useEffect(() => {
-        fetch("/pgnow_api/pokeapi/"+monToShow)
-          .then((res) => res.json())
-          .then((data) => setMonImg(data.sprites.front_default));
-    }, []);*/
+    const monToShow = props.monToShow ? props.monToShow : "pikachu";
 
     // REAL API
     const [monImg, setMonImg] = React.useState(null);
@@ -23,12 +14,12 @@ export default function GraphicMon(props) {
     const image = monImg;
     
     var graphicContainer = 
-        <div class="graphic-mon-outer">
-            <div class="graphic-mon-background"></div>
-            <div class="graphic-mon-image">
-                <img src={image}></img>
+        <div className="graphic-mon-outer">
+            <div className="graphic-mon-background"></div>
+            <div className="graphic-mon-image">
+                <img src={image} alt={monToShow}></img>
             </div>
-            <div class="graphic-mon-text"><p>{textToShow}</p></div>
+            <div className="graphic-mon-text"><p>{monToShow}</p></div>
         </div>;
     return graphicContainer;
 }

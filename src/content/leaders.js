@@ -24,11 +24,11 @@ function scrape_leaders()
                     thirdMons: []
                 }
 
-                if (leaderCounter == 0) {
+                if (leaderCounter === 0) {
                     leader.name = "Arlo";
-                } else if (leaderCounter == 0) {
+                } else if (leaderCounter === 0) {
                     leader.name = "Cliff";
-                } else if (leaderCounter == 0) {
+                } else if (leaderCounter === 0) {
                     leader.name = "Sierra";
                 }
 
@@ -37,21 +37,21 @@ function scrape_leaders()
                 positions.forEach(position =>
                 {
                     var mons = position.querySelectorAll("div.pogo-list-item > div.pogo-list-item-desc > div.pogo-list-item-name > a");
-                    if (positionCounter == 0) {
+                    if (positionCounter === 0) {
                         mons.forEach(mon =>
                         {
                             leader.firstMons.push(mon.textContent);
                             let image = getImage(mon.textContent);
                             global.monMap.set(mon.textContent, image);
                         })
-                    } else if (positionCounter == 1) {
+                    } else if (positionCounter === 1) {
                         mons.forEach(mon =>
                         {
                             leader.secondMons.push(mon.textContent);
                             let image = getImage(mon.textContent);
                             global.monMap.set(mon.textContent, image);
                         })
-                    } else if (positionCounter == 2) {
+                    } else if (positionCounter === 2) {
                         mons.forEach(mon =>
                         {
                             leader.thirdMons.push(mon.textContent);

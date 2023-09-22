@@ -54,17 +54,48 @@ ul {
 /* --- graphic container --- */
 .graphic-container-outer {
   width: 85vw;
-  margin: 10px;
+  margin: -15px 10px 10px 10px;
 }
 .graphic-container-icon {
-  background: url("./assets/images/pokeball.png") no-repeat center center;
   width: 40px;
   height: 40px;
-  background-size: contain;
   position: relative;
   top: 35px;
   left: -15px;
 }
+.graphic-container-icon.default {
+  background: url("./assets/images/icons/pokeball-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.event {
+  background: url("./assets/images/icons/event-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.raid {
+  background: url("./assets/images/icons/raid-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.shraid {
+  background: url("./assets/images/icons/shraid-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.egg {
+  background: url("./assets/images/icons/egg-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.leader {
+  background: url("./assets/images/icons/leader-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.research {
+  background: url("./assets/images/icons/research-icon.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon.upcoming {
+  background: url("./assets/images/icons/upcoming-icon.png") no-repeat center center;
+  background-size: contain;
+}
+
 .graphic-container-gradient {
   background-image: linear-gradient(135deg, #271fb3, rgba(255,0,0,0));
   margin-left: 10px;
@@ -85,11 +116,13 @@ ul {
   background-image: linear-gradient(to left, #d363c5, #7f42dd);
   width: 100%;
 }
-.graphic-container-inner > * {
-  margin-left: 20px;
+.graphic-container-inner > ul {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .graphic-container-inner > ul > li {
   margin-top: 5px;
+  margin-left: 20px;
 }
 
 /* --- graphic mon --- */
@@ -123,6 +156,9 @@ ul {
 }
 
 /* --- Tabs --- */
+.react-tabs {
+  margin-top:10px;
+}
 .react-tabs__tab {
   padding: 8px 4px;
   margin: 1px;
@@ -130,8 +166,10 @@ ul {
 .react-tabs__tab.react-tabs__tab--selected {
   padding: 8px 4px;
   border-radius: 10px;
+  border-width: 0;
   background-color: #7f42dd;
   background: #7f42dd;
+  color: white;
 }
 .react-tabs__tab:focus:after {  
   content: '';
@@ -146,9 +184,17 @@ ul {
   border-bottom: 0px;
 }
 
+.source-container {
+  margin-left: 10px;
+  margin-top: 30px;
+}
 .source-container > p {  
   background-image: linear-gradient(135deg, #271fb3, rgba(255,0,0,0));
   padding: 10px;
+}
+
+.welcome-banner {
+  margin-top: 32px;
   margin-left: 10px;
 }
 

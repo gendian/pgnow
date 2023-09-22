@@ -8,6 +8,7 @@ import Researches from "./components/researches";
 import Raids from "./components/raids";
 import ShadowRaids from "./components/shadowRaids";
 import Leaders from "./components/leaders";
+import WelcomeBanner from "./components/welcomeBanner";
 import SourceLink from "./components/atomic/sourceLink";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -23,7 +24,7 @@ function App() {
         <Loading/>
       </header>
       */}
-      <div class="App-body">
+      <div className="App-body">
       <Tabs forceRenderTabPanel={true}>
         <TabList>
           <Tab>Events</Tab>
@@ -35,32 +36,33 @@ function App() {
           <Tab>Upcoming</Tab>
         </TabList>
           <TabPanel>
-            <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/events/"/>
+            <WelcomeBanner/>
             <CurrentEvents/>
+            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
           </TabPanel>
           <TabPanel>
-            <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/boss/"/>
             <Raids/>
+            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/boss/"/>
           </TabPanel>
           <TabPanel>
-            <SourceLink textToShow="Credit to Pokemon Go Fandom" linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
             <ShadowRaids/>
+            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info" linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
           </TabPanel>
           <TabPanel>
-            <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/eggs/"/>
             <Eggs/>
+            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/eggs/"/>
           </TabPanel>
           <TabPanel>
-            <SourceLink textToShow="Credit to Pokemon Go Fandom" linkToShow="https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders"/>
             <Leaders/>
+            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info" linkToShow="https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders"/>
           </TabPanel>
           <TabPanel>
-            <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/research/"/>
             <Researches/>
+            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/research/"/>
           </TabPanel>        
           <TabPanel>
-            <SourceLink textToShow="Credit to LeekDuck" linkToShow="https://leekduck.com/events/"/>
             <FutureEvents/>
+            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
           </TabPanel>
       </Tabs>
       </div>

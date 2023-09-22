@@ -29,15 +29,15 @@ export default function ShadowRaids() {
 
     const raid_element = 
     <div>
-        <GraphicContainer textToShow="Shadow One Star Raids">
+        <GraphicContainer textToShow="Shadow 1* Raids" iconToShow="shraid">
             <GraphicMons monsToShow={onestar}/>
         </GraphicContainer>
-        <GraphicContainer textToShow="Shadow Three Star Raids">
+        <GraphicContainer textToShow="Shadow 3* Raids" iconToShow="shraid">
             <GraphicMons monsToShow={threestar}/>
         </GraphicContainer>
-        <GraphicContainer textToShow="Shadow Legendary Raids">
-            <h3>Only on Saturdays and Sundays</h3>
+        <GraphicContainer textToShow="Shadow Legendary Raids" iconToShow="shraid">
             <GraphicMons monsToShow={legendary}/>
+            <p>*Only available on Saturdays and Sundays</p>
         </GraphicContainer>
     </div>;
 

@@ -18,41 +18,39 @@ export default function Researches() {
     var otherList = [];
 
     if (researches !== null && researches !== undefined) {
+        var count = 0;
         researches.forEach(research => {
+            const researchLi = <li key={"research-"+count}><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
             if (research.text.includes("Catch") || research.text.includes("Berries")) {
-                const researchLi = <li><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
                 catchList.push(researchLi);
             } else if (research.text.includes("Throw")) {
-                const researchLi = <li><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
                 throwList.push(researchLi);
             } else if (research.text.includes("raid") || research.text.includes("Spin") || research.text.includes("Rocket")) {
-                const researchLi = <li><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
                 interactList.push(researchLi);
             } else if (research.text.includes("Hatch") || research.text.includes("Take") || research.text.includes("Candies") || research.text.includes("Explore")) {
-                const researchLi = <li><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
                 exploreList.push(researchLi);
-            } else {
-                const researchLi = <li><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
+            } else {                
                 otherList.push(researchLi);
             }
+            count++;
         });
     }    
 
     const research_element = 
     <div>
-        <GraphicContainer textToShow="Catch">
+        <GraphicContainer textToShow="Catch" iconToShow="research">
             <ul>{catchList}</ul>
         </GraphicContainer>
-        <GraphicContainer textToShow="Throw">
+        <GraphicContainer textToShow="Throw" iconToShow="research">
             <ul>{throwList}</ul>
         </GraphicContainer>
-        <GraphicContainer textToShow="Interact">
+        <GraphicContainer textToShow="Interact" iconToShow="research">
             <ul>{interactList}</ul>
         </GraphicContainer>
-        <GraphicContainer textToShow="Explore">
+        <GraphicContainer textToShow="Explore" iconToShow="research">
             <ul>{exploreList}</ul>
         </GraphicContainer>
-        <GraphicContainer textToShow="Misc.">
+        <GraphicContainer textToShow="Misc." iconToShow="research">
             <ul>{otherList}</ul>
         </GraphicContainer>
     </div>;

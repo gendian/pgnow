@@ -6,7 +6,7 @@ export default function SourceLink(props) {
     var textToShow = props.textToShow ? props.textToShow : "Something went wrong";   
     
     var sourceContainer = 
-        <div class="source-container">
+        <div className="source-container">
             <p>{textToShow} <a target="blank" href={linkToShow}><FaLink/></a></p>            
         </div>;
     return sourceContainer;

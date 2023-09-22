@@ -36,19 +36,19 @@ export default function Eggs() {
 
     const egg_element = 
     <div>
-        <GraphicContainer textToShow="2km">
+        <GraphicContainer textToShow="2km" iconToShow="egg">
             <GraphicMons monsToShow={twok}/>
         </GraphicContainer>
-        <GraphicContainer textToShow="5km">
+        <GraphicContainer textToShow="5km" iconToShow="egg">
             <GraphicMons monsToShow={fivek}/>
         </GraphicContainer>
-        <GraphicContainer textToShow="7km">
+        <GraphicContainer textToShow="7km" iconToShow="egg">
             <GraphicMons monsToShow={sevenk}/>
         </GraphicContainer>
-        <GraphicContainer textToShow="10km">
+        <GraphicContainer textToShow="10km" iconToShow="egg">
             <GraphicMons monsToShow={tenk}/>
         </GraphicContainer>
-        <GraphicContainer textToShow="12km">
+        <GraphicContainer textToShow="12km" iconToShow="egg">
             <GraphicMons monsToShow={twelvek}/>
         </GraphicContainer>
     </div>;

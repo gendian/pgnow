@@ -33,16 +33,16 @@ export default function Raids() {
 
     const raid_element = 
         <div>
-            <GraphicContainer textToShow="One Star Raids">
+            <GraphicContainer textToShow="1* Raids" iconToShow="raid">
                 <GraphicMons monsToShow={onestar}/>
             </GraphicContainer>
-            <GraphicContainer textToShow="Three Star Raids">
+            <GraphicContainer textToShow="3* Raids" iconToShow="raid">
                 <GraphicMons monsToShow={threestar}/>
             </GraphicContainer>
-            <GraphicContainer textToShow="Five Star Raids">
+            <GraphicContainer textToShow="5* Raids" iconToShow="raid">
                 <GraphicMons monsToShow={fivestar}/>
             </GraphicContainer>
-            <GraphicContainer textToShow="Mega Raids">
+            <GraphicContainer textToShow="Mega Raids" iconToShow="raid">
                 <GraphicMons monsToShow={mega}/>
             </GraphicContainer>
         </div>;
