@@ -2,6 +2,7 @@ const fs = require('fs');
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
 const https = require('https');
+const { generateOptions, parseGitResponse, getImage } = require('../utils');
 
 function scrape_leaders()
 {
@@ -40,16 +41,22 @@ function scrape_leaders()
                         mons.forEach(mon =>
                         {
                             leader.firstMons.push(mon.textContent);
+                            let image = getImage(mon.textContent);
+                            global.monMap.set(mon.textContent, image);
                         })
                     } else if (positionCounter == 1) {
                         mons.forEach(mon =>
                         {
                             leader.secondMons.push(mon.textContent);
+                            let image = getImage(mon.textContent);
+                            global.monMap.set(mon.textContent, image);
                         })
                     } else if (positionCounter == 2) {
                         mons.forEach(mon =>
                         {
                             leader.thirdMons.push(mon.textContent);
+                            let image = getImage(mon.textContent);
+                            global.monMap.set(mon.textContent, image);
                         })
                     }
                     positionCounter++;
@@ -61,7 +68,7 @@ function scrape_leaders()
 
             console.log("Scraping leaders");
             global.leaders = leaders;
-            //console.log(global.leaders);
+            console.log(global.leaders);
         }).catch(_err =>
             {
                 console.log(_err);

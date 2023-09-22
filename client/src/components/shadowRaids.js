@@ -1,13 +1,13 @@
 import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
-import Mons from "./atomic/mons";
+import GraphicMons from "./atomic/graphicMons";
 
 export default function ShadowRaids() {
 
     // REAL API
     const [shadowRaids, setShadowRaids] = React.useState(null);
     React.useEffect(() => {
-        fetch("/github_api/shadow_raids")
+        fetch("/pgnow_api/shadow_raids")
           .then((res) => res.json())
           .then((data) => setShadowRaids(Object.values(data)));
     }, []);
@@ -30,13 +30,13 @@ export default function ShadowRaids() {
     const raid_element = 
     <div>
         <GraphicContainer textToShow="Shadow One Star Raids">
-            <Mons monsToShow={onestar}/>
+            <GraphicMons monsToShow={onestar}/>
         </GraphicContainer>
         <GraphicContainer textToShow="Shadow Three Star Raids">
-            <Mons monsToShow={threestar}/>
+            <GraphicMons monsToShow={threestar}/>
         </GraphicContainer>
         <GraphicContainer textToShow="Shadow Legendary Raids">
-            <Mons monsToShow={legendary}/>
+            <GraphicMons monsToShow={legendary}/>
         </GraphicContainer>
     </div>;
 

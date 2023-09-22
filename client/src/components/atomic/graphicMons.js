@@ -2,7 +2,7 @@ import React from "react";
 import GraphicMon from "./graphicMon";
 
 
-export default function Mons(props) {
+export default function GraphicMons(props) {
     const monsToShow = props.monsToShow ? props.monsToShow : [];
     var graphicMons = [];
 
@@ -14,7 +14,7 @@ export default function Mons(props) {
     monsToShow.forEach(graphicMonList);
 
     var mons = 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
             {graphicMons}
         </div>;
     return mons;

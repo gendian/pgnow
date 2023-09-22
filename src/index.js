@@ -10,15 +10,15 @@ const { scrape_raids } = require('./content/raids');
 const { scrape_eggs } = require('./content/eggs');
 const { scrape_researches } = require('./content/researches');
 const { scrape_leaders } = require('./content/leaders');
-
 const PORT = process.env.PORT || 3001;
-
 const app = express();
+
+global.monMap = new Map();
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(middlewares.setHeaders);
-app.use('/github_api', routes);
+app.use('/pgnow_api', routes);
 app.use(express.json());
 app.use(cors());
 

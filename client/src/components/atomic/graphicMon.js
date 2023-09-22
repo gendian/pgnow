@@ -3,27 +3,21 @@ import React from "react";
 export default function GraphicMon(props) {
     const textToShow = props.monToShow;
     var monToShow = props.monToShow ? props.monToShow : "pikachu";
-    monToShow = monToShow.toLowerCase();
-    monToShow = monToShow.replace("mega", "");
-    monToShow = monToShow.replace("hisuian", "");
-    monToShow = monToShow.replace("galarian", "");
-    monToShow = monToShow.replace("alolan", "");
-    monToShow = monToShow.replace(".", "-");
-    monToShow = monToShow.replace("'", "");
-    monToShow = monToShow.replace(/\s/g,'');
-    monToShow = monToShow.replace(/ *\([^)]*\) */g, "");
 
-    if (monToShow.includes("unown")) {
-        // fiddle with the request
-        monToShow = "unown";
-    }
+    // REAL API
+    /*const [monImg, setMonImg] = React.useState(null);
+    React.useEffect(() => {
+        fetch("/pgnow_api/pokeapi/"+monToShow)
+          .then((res) => res.json())
+          .then((data) => setMonImg(data.sprites.front_default));
+    }, []);*/
 
     // REAL API
     const [monImg, setMonImg] = React.useState(null);
     React.useEffect(() => {
-        fetch("/github_api/pokeapi/"+monToShow)
+        fetch("/pgnow_api/loadImage/"+monToShow)
           .then((res) => res.json())
-          .then((data) => setMonImg(data.sprites.front_default));
+          .then((data) => setMonImg(data));
     }, []);
 
     const image = monImg;

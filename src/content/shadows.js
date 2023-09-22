@@ -2,6 +2,7 @@ const fs = require('fs');
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
 const https = require('https');
+const { generateOptions, parseGitResponse, getImage } = require('../utils');
 
 function scrape_shadows()
 {
@@ -44,6 +45,8 @@ function scrape_shadows()
 
                     pokemon.name = c.querySelector(".pogo-list-item-desc > .pogo-list-item-name").textContent;
                     shadows.push(pokemon);
+                    let image = getImage(pokemon.name);
+                    global.monMap.set(pokemon.name, image);
                 }
             })
             console.log("Scraping shadows");

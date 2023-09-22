@@ -1,15 +1,15 @@
 import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
-import Mons from "./atomic/mons";
+import GraphicMons from "./atomic/graphicMons";
 
 export default function Eggs() {
 
     // REAL API
     const [eggs, setEggs] = React.useState(null);
     React.useEffect(() => {
-        fetch("/github_api/eggs")
+        fetch("/pgnow_api/eggs")
           .then((res) => res.json())
-          .then((data) => setEggs(atob(JSON.parse(data).content)));
+          .then((data) => setEggs(data));
     }, []);
     
     var twok = [];
@@ -18,9 +18,8 @@ export default function Eggs() {
     var tenk = [];
     var twelvek = [];
 
-    var parsed_eggs = JSON.parse(eggs);
-    if (parsed_eggs !== null && parsed_eggs !== undefined) {
-        parsed_eggs.forEach(egg => {
+    if (eggs !== null && eggs !== undefined) {
+        eggs.forEach(egg => {
             if (egg.eggType.includes("12")) {
                 twok.push(egg.name);
             } else if (egg.eggType.includes("5")) {
@@ -38,19 +37,19 @@ export default function Eggs() {
     const egg_element = 
     <div>
         <GraphicContainer textToShow="2km">
-            <Mons monsToShow={twok}/>
+            <GraphicMons monsToShow={twok}/>
         </GraphicContainer>
         <GraphicContainer textToShow="5km">
-            <Mons monsToShow={fivek}/>
+            <GraphicMons monsToShow={fivek}/>
         </GraphicContainer>
         <GraphicContainer textToShow="7km">
-            <Mons monsToShow={sevenk}/>
+            <GraphicMons monsToShow={sevenk}/>
         </GraphicContainer>
         <GraphicContainer textToShow="10km">
-            <Mons monsToShow={tenk}/>
+            <GraphicMons monsToShow={tenk}/>
         </GraphicContainer>
         <GraphicContainer textToShow="12km">
-            <Mons monsToShow={twelvek}/>
+            <GraphicMons monsToShow={twelvek}/>
         </GraphicContainer>
     </div>;
 

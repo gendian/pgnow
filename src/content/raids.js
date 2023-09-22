@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('https');
-const { generateOptions } = require('../utils');
+const { generateOptions, parseGitResponse, getImage } = require('../utils');
 
 function scrape_raids()
 {    
@@ -17,7 +17,12 @@ function scrape_raids()
         // The whole response has been received. Print out the result.
         apiResponse.on('end', () => {
             console.log('Fetching raids');
-            global.raids = data;
+            var content = parseGitResponse(data);
+            global.raids = content;
+            content.forEach(function(item) {
+                let image = getImage(item.name);
+                global.monMap.set(item.name, image)}
+            );
         });
     }).on('error', (e) => {
         console.log(e);

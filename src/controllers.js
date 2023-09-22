@@ -7,6 +7,7 @@ const { get_raids } = require('./content/raids');
 const { get_eggs } = require('./content/eggs');
 const { get_researches } = require('./content/researches');
 const { get_leaders } = require('./content/leaders');
+const { load_image } = require('./utils');
 
 const getUser= async function (req, res) {
     const user = req.params.user;
@@ -88,8 +89,6 @@ const getPokeAPI= async function (req, res) {
     const mon = req.params.mon;
     const options = 'https://pokeapi.co/api/v2/pokemon/' + mon;
 
-    console.log(options);
-
     https.get(options, function (apiResponse) {
         apiResponse.pipe(res);
     }).on('error', (e) => {
@@ -98,4 +97,8 @@ const getPokeAPI= async function (req, res) {
     })
 }
 
-module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders, getPokeAPI }
+const loadImage= async function (req, res) {
+    res.json(load_image(req.params.name));
+}
+
+module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, loadImage }

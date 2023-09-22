@@ -7,17 +7,16 @@ export default function CurrentEvents() {
     // REAL API
     const [events, setEvents] = React.useState(null);
     React.useEffect(() => {
-        fetch("/github_api/events")
+        fetch("/pgnow_api/events")
           .then((res) => res.json())
-          .then((data) => setEvents(atob(JSON.parse(data).content)));
+          .then((data) => setEvents(data));
     }, []);
 
     var currentEvents = [];
     let currentTime = new Date().getTime();
-    var parsed_events = JSON.parse(events);
-    if (parsed_events !== null && parsed_events !== undefined) {
-        parsed_events.sort(function(a,b){return Date.parse(a.end)-Date.parse(b.end)});
-        parsed_events.forEach(event => {
+    if (events !== null && events !== undefined) {
+        events.sort(function(a,b){return Date.parse(a.end)-Date.parse(b.end)});
+        events.forEach(event => {
             if (!event.name.includes("Raid")) {
                 // Countdown Timer
                 var start = new Date(Date.parse(event.start));

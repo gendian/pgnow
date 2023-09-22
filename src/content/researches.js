@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('https');
-const { generateOptions } = require('../utils');
+const { generateOptions, parseGitResponse, getImage } = require('../utils');
 
 function scrape_researches()
 {    
@@ -17,7 +17,8 @@ function scrape_researches()
         // The whole response has been received. Print out the result.
         apiResponse.on('end', () => {
             console.log('Fetching researches');
-            global.researches = data;
+            var content = parseGitResponse(data);
+            global.researches = content;
         });
     }).on('error', (e) => {
         console.log(e);

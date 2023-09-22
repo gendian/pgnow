@@ -6,9 +6,9 @@ export default function Researches() {
     // REAL API
     const [researches, setResearches] = React.useState(null);
     React.useEffect(() => {
-        fetch("/github_api/researches")
+        fetch("/pgnow_api/researches")
           .then((res) => res.json())
-          .then((data) => setResearches(atob(JSON.parse(data).content)));
+          .then((data) => setResearches(data));
     }, []);
 
     var catchList = [];
@@ -17,9 +17,8 @@ export default function Researches() {
     var exploreList = [];
     var otherList = [];
 
-    var parsed_researches = JSON.parse(researches);
-    if (parsed_researches !== null && parsed_researches !== undefined) {
-        parsed_researches.forEach(research => {
+    if (researches !== null && researches !== undefined) {
+        researches.forEach(research => {
             if (research.text.includes("Catch") || research.text.includes("Berries")) {
                 const researchLi = <li><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
                 catchList.push(researchLi);

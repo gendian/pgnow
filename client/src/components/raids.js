@@ -1,26 +1,24 @@
 import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
-import Mons from "./atomic/mons";
+import GraphicMons from "./atomic/graphicMons";
 
 export default function Raids() {
 
     // REAL API
     const [raids, setRaids] = React.useState(null);
     React.useEffect(() => {
-        fetch("/github_api/raids")
+        fetch("/pgnow_api/raids")
           .then((res) => res.json())
-          .then((data) => setRaids(atob(JSON.parse(data).content)));
+          .then((data) => setRaids(data));
     }, []);
-
-    var parsed_raids = JSON.parse(raids);
     
     var onestar = [];
     var threestar = [];
     var fivestar = [];
     var mega = [];
 
-    if (parsed_raids !== null && parsed_raids !== undefined) {
-        parsed_raids.forEach(raid => {
+    if (raids !== null && raids !== undefined) {
+        raids.forEach(raid => {
             if (raid.tier.includes("1")) {
                 onestar.push(raid.name);
             } else if (raid.tier.includes("3")) {
@@ -36,16 +34,16 @@ export default function Raids() {
     const raid_element = 
         <div>
             <GraphicContainer textToShow="One Star Raids">
-                <Mons monsToShow={onestar}/>
+                <GraphicMons monsToShow={onestar}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Three Star Raids">
-                <Mons monsToShow={threestar}/>
+                <GraphicMons monsToShow={threestar}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Five Star Raids">
-                <Mons monsToShow={fivestar}/>
+                <GraphicMons monsToShow={fivestar}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Mega Raids">
-                <Mons monsToShow={mega}/>
+                <GraphicMons monsToShow={mega}/>
             </GraphicContainer>
         </div>;
 

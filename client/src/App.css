@@ -13,7 +13,7 @@ ul {
   text-align: left;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
-  background: url("./assets/images/synapses.png");
+  background: linear-gradient(90deg, #780675, #100a62);
 }
 
 .App-logo {
@@ -101,8 +101,8 @@ ul {
 }
 .graphic-mon-background {  
   background: url("./assets/images/pokeball-background.png") no-repeat center center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-size: contain;
 }
 .graphic-mon-image {
@@ -114,10 +114,11 @@ ul {
   height: 80px;
   object-fit: cover;
   position: relative;
-  top: -60px;
+  top: -65px;
   left: -40px;
 }
 .graphic-mon-text {
+  padding-top:5px;
   text-align: center;
 }
 
