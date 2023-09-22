@@ -36,6 +36,7 @@ export default function ShadowRaids() {
             <GraphicMons monsToShow={threestar}/>
         </GraphicContainer>
         <GraphicContainer textToShow="Shadow Legendary Raids">
+            <h3>Only on Saturdays and Sundays</h3>
             <GraphicMons monsToShow={legendary}/>
         </GraphicContainer>
     </div>;
