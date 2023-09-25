@@ -1,9 +1,8 @@
 const { generateOptions } = require('./utils');
 const https = require('https');
 const constants=require('./constants');
-const { get_shadows } = require('./content/shadows');
 const { get_events } = require('./content/events');
-const { get_raids } = require('./content/raids');
+const { get_raids, get_shadows } = require('./content/raids');
 const { get_eggs } = require('./content/eggs');
 const { get_researches } = require('./content/researches');
 const { get_leaders } = require('./content/leaders');

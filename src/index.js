@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const middlewares = require('./middlewares');
 const routes = require('./routes');
-const { scrape_shadows } = require('./content/shadows');
 const { scrape_events } = require('./content/events');
 const { scrape_raids } = require('./content/raids');
 const { scrape_eggs } = require('./content/eggs');
@@ -22,7 +21,6 @@ app.use('/pgnow_api', routes);
 app.use(express.json());
 app.use(cors());
 
-scrape_shadows();
 scrape_events();
 scrape_raids();
 scrape_eggs();

@@ -68,7 +68,6 @@ function scrape_leaders()
 
             console.log("Scraping leaders");
             global.leaders = leaders;
-            console.log(global.leaders);
         }).catch(_err =>
             {
                 console.log(_err);
