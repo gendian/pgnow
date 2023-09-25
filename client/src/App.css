@@ -65,7 +65,7 @@ ul {
   width: 40px;
   height: 40px;
   position: relative;
-  top: 77px;
+  top: 72px;
   left: -15px;
   background: url("./assets/images/icons/icon-background.png") no-repeat center center;
   background-size: contain;
@@ -74,7 +74,7 @@ ul {
   width: 34px;
   height: 34px;
   position: relative;
-  top: 40px;
+  top: 35px;
   left: -12px;
 }
 .graphic-container-icon.default {

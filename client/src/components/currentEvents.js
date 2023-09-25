@@ -23,60 +23,58 @@ export default function CurrentEvents() {
     if (events !== null && events !== undefined) {
         events.sort(function(a,b){return Date.parse(a.end)-Date.parse(b.end)});
         events.forEach(event => {
-            if (!event.name.includes("Raid")) {
-                // Countdown Timer
-                var start = new Date(Date.parse(event.start));
-                var countDownDate = Date.parse(event.end);
-                var distance = countDownDate - currentTime;
-
-                // Show events that are current
-                let end = new Date(Date.parse(event.end));
-                if (start <= currentTime && end >= currentTime) {
-                    const listItem = 
-                        <li key={"event-"+count}>
-                            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
-                                <div>{event.name.replace("Ã©", "é")}</div>
-                                <div className={distance < 172800000 ? "countdown-soon" : ""}>
-                                    <b>
-                                        <Countdown date={Date.now() + distance}renderer={props => 
-                                            <div>
-                                                {distance > dayInMillis ? props.days + (props.days===1?" day ":" days ") : ""}
-                                                {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
-                                                {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
-                                                {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
-                                                 left
-                                            </div>
-                                        }
-                                        />
-                                    </b>
-                                </div>
-                            </div>
-                        </li>;          
-                    currentEvents.push(listItem);
-                } else if (distance < weekInMillis) {
-                    const listItem = 
-                    <li key={"future-"+count}>
+            // Countdown Timer
+            var start = new Date(Date.parse(event.start));
+            var countDownDate = Date.parse(event.end);
+            var distance = countDownDate - currentTime;
+            
+            // Show events that are current
+            let end = new Date(Date.parse(event.end));
+            if (start <= currentTime && end >= currentTime) {
+                const listItem = 
+                    <li key={"event-"+count}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                             <div>{event.name.replace("Ã©", "é")}</div>
-                            <div>
+                            <div className={distance < 172800000 ? "countdown-soon" : ""}>
                                 <b>
                                     <Countdown date={Date.now() + distance}renderer={props => 
                                         <div>
-                                            {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
+                                            {distance > dayInMillis ? props.days + (props.days===1?" day ":" days ") : ""}
                                             {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
                                             {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
                                             {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
+                                                left
                                         </div>
                                     }
                                     />
                                 </b>
                             </div>
                         </div>
-                    </li>;
-                    comingSoon.push(listItem);
-                }
-                count++;
+                    </li>;          
+                currentEvents.push(listItem);
+            } else if (distance < weekInMillis) {
+                const listItem = 
+                <li key={"future-"+count}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
+                        <div>{event.name.replace("Ã©", "é")}</div>
+                        <div>
+                            <b>
+                                <Countdown date={Date.now() + distance}renderer={props => 
+                                    <div>
+                                        {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
+                                        {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
+                                        {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
+                                        {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
+                                    </div>
+                                }
+                                />
+                            </b>
+                        </div>
+                    </div>
+                </li>;
+                comingSoon.push(listItem);
             }
+            count++;
         });
     }
 
