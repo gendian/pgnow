@@ -42,7 +42,7 @@ function App() {
           </TabPanel>
           <TabPanel>
             <Raids/>
-            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/boss/"/>
+            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info" linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
           </TabPanel>
           <TabPanel>
             <ShadowRaids/>

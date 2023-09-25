@@ -54,14 +54,23 @@ ul {
 /* --- graphic container --- */
 .graphic-container-outer {
   width: 85vw;
-  margin: -15px 10px 10px 10px;
+  margin: -45px 10px 10px 10px;
 }
-.graphic-container-icon {
+.graphic-container-icon-background {
   width: 40px;
   height: 40px;
   position: relative;
-  top: 35px;
+  top: 77px;
   left: -15px;
+  background: url("./assets/images/icons/icon-background.png") no-repeat center center;
+  background-size: contain;
+}
+.graphic-container-icon {
+  width: 34px;
+  height: 34px;
+  position: relative;
+  top: 40px;
+  left: -12px;
 }
 .graphic-container-icon.default {
   background: url("./assets/images/icons/pokeball-icon.png") no-repeat center center;
@@ -122,6 +131,9 @@ ul {
 }
 .graphic-container-inner > ul > li {
   margin-top: 5px;
+  margin-left: 20px;
+}
+.graphic-container-inner > p {
   margin-left: 20px;
 }
 

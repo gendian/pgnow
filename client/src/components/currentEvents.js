@@ -4,6 +4,7 @@ import GraphicContainer from "./atomic/graphicContainer";
 
 export default function CurrentEvents() {
 
+    const weekInMillis = 6.048e+8;
     const dayInMillis = 8.64e+7;
     const hourInMillis = 3.6e+6;
 
@@ -16,6 +17,7 @@ export default function CurrentEvents() {
     }, []);
 
     var currentEvents = [];
+    var comingSoon = [];
     let currentTime = new Date().getTime();
     var count = 0;
     if (events !== null && events !== undefined) {
@@ -42,6 +44,7 @@ export default function CurrentEvents() {
                                                 {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
                                                 {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
                                                 {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
+                                                 left
                                             </div>
                                         }
                                         />
@@ -50,6 +53,27 @@ export default function CurrentEvents() {
                             </div>
                         </li>;          
                     currentEvents.push(listItem);
+                } else if (distance < weekInMillis) {
+                    const listItem = 
+                    <li key={"future-"+count}>
+                        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
+                            <div>{event.name.replace("Ã©", "é")}</div>
+                            <div>
+                                <b>
+                                    <Countdown date={Date.now() + distance}renderer={props => 
+                                        <div>
+                                            {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
+                                            {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
+                                            {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
+                                            {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
+                                        </div>
+                                    }
+                                    />
+                                </b>
+                            </div>
+                        </div>
+                    </li>;
+                    comingSoon.push(listItem);
                 }
                 count++;
             }
@@ -60,6 +84,9 @@ export default function CurrentEvents() {
     <div>
         <GraphicContainer textToShow="Live Events" iconToShow="event">
             <ul>{currentEvents}</ul>
+        </GraphicContainer>
+        <GraphicContainer textToShow="Starting soon" iconToShow="upcoming">
+            <ul>{comingSoon}</ul>
         </GraphicContainer>
     </div>;
 

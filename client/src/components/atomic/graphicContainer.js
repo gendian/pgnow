@@ -5,7 +5,8 @@ export default function GraphicContainer(props) {
     const iconToShow = props.iconToShow ? props.iconToShow : "default";
     var graphicContainer = 
         <div className="graphic-container-outer">
-            <div className={"graphic-container-icon " + iconToShow}></div>
+            <div className={"graphic-container-icon-background"}></div>
+            <div className={"graphic-container-icon " + iconToShow}></div>            
             <div className="graphic-container-gradient">
                 <p>{textToShow}</p>
             </div>
