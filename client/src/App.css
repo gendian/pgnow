@@ -33,10 +33,15 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(5px + 1vmin);
+  font-size: calc(6px + 2vmin);
   color: white;
   padding-left: 20px;
   padding-right: 20px;
+}
+@media (min-width: 600px) {
+  .App-header, .App-body {
+    font-size: calc(6px + 1vmin);
+  }
 }
 
 .App-link {
