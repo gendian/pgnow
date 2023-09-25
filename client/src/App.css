@@ -59,7 +59,7 @@ ul {
 /* --- graphic container --- */
 .graphic-container-outer {
   width: 85vw;
-  margin: -45px 10px 10px 10px;
+  margin: -45px 0px 0px 10px;
 }
 .graphic-container-icon-background {
   width: 40px;
@@ -144,7 +144,7 @@ ul {
 
 /* --- graphic mon --- */
 .graphic-mon-outer {
-  margin: 20px;
+  margin: 20px 5px 10px 5px;
 }
 .graphic-mon-outer > * {
   margin: auto;
