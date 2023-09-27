@@ -20,7 +20,24 @@ export default function Researches() {
     if (researches !== null && researches !== undefined) {
         var count = 0;
         researches.forEach(research => {
-            const researchLi = <li key={"research-"+count}><b>{research.text.replace("Ã©", "é")}</b> - {research.rewards.map(reward => reward.name + " ")}</li>;
+            var rewards = research.rewards;
+            const researchLi = 
+                <li key={"research-"+count}>
+                    <b>{research.text.replace("Ã©", "é")}</b> -  
+                    {rewards.map((reward, i, rewards) => 
+                        {
+                            if (rewards.length === 1) {
+                                return " " + reward.name;
+                            } else if (i + 1 === rewards.length) {
+                                return reward.name;
+                            } else if (i === 0) {
+                                return " " + reward.name + ", ";
+                            } else {
+                                return reward.name + ", "
+                            }  
+                        }                      
+                    )}
+                </li>
             if (research.text.includes("Catch") || research.text.includes("Berries")) {
                 catchList.push(researchLi);
             } else if (research.text.includes("Throw")) {

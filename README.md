@@ -1,1 +1,4 @@
-Run `npm start` in client directory and separately run `npm start` in backend directory (after you have `npm install`ed both)
+To start a dev environment: `npm run dev`
+
+Commit and push to repo to enable rebuild of prod (heroku) environment.
+(heroku runs the "start" command in package.json)

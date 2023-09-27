@@ -6,7 +6,7 @@ export default function GraphicMon(props) {
     // REAL API
     const [monImg, setMonImg] = React.useState(null);
     React.useEffect(() => {
-        fetch("/pgnow_api/loadImage/"+monToShow)
+        fetch("/pgnow_api/loadImage/"+monToShow.name)
           .then((res) => res.json())
           .then((data) => setMonImg(data));
     }, []);
@@ -17,9 +17,9 @@ export default function GraphicMon(props) {
         <div className="graphic-mon-outer">
             <div className="graphic-mon-background"></div>
             <div className="graphic-mon-image">
-                <img src={image} alt={monToShow}></img>
+                <img src={image} alt={monToShow.name}></img>
             </div>
-            <div className="graphic-mon-text"><p>{monToShow}</p></div>
+            <div className="graphic-mon-text"><p>{monToShow.name}</p></div>
         </div>;
     return graphicContainer;
 }

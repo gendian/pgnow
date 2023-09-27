@@ -1,7 +1,16 @@
-
-
-a {
-  color: #24b2ff;
+/* Define colors */
+:root {
+  --text: #ffe0f2;
+  --title: #fffdfe;
+  --container-title: #6f1e44;
+  --container-right: #6f1e44;
+  --container-left: #6f3751;
+  --container-border: #e3acb2;
+  --cont-grad-right: transparent;
+  --cont-grad-left: #fcfaf5;
+  --background-right: #b16c2b;
+  --background-left: #c99e38;
+  --icon-background: #c82626;
 }
 
 ul {
@@ -13,7 +22,7 @@ ul {
   text-align: left;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   Helvetica, Arial, "Lucida Grande", sans-serif;
-  background: linear-gradient(90deg, #780675, #100a62);
+  background: linear-gradient(90deg, var(--background-left), var(--background-right));
 }
 
 .App-logo {
@@ -28,12 +37,11 @@ ul {
 }
 
 .App-header, .App-body {
-  /*background-color: #0f224a;*/
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(6px + 2vmin);
+  font-size: calc(6px + 1.5vmin);
   color: white;
   padding-left: 20px;
   padding-right: 20px;
@@ -44,8 +52,12 @@ ul {
   }
 }
 
+.welcome-banner {
+  color: var(--title);
+}
+
 .App-link {
-  color: #61dafb;
+  color: var(--text);
 }
 
 .Collapsible {
@@ -53,7 +65,7 @@ ul {
 }
 
 .countdown-soon {
-  color:#271fb3;
+  color: var(--background-left);
 }
 
 /* --- graphic container --- */
@@ -68,6 +80,8 @@ ul {
   top: 72px;
   left: -15px;
   background: url("./assets/images/icons/icon-background.png") no-repeat center center;
+  background-color: var(--icon-background);
+  border-radius: 50%;
   background-size: contain;
 }
 .graphic-container-icon {
@@ -111,11 +125,11 @@ ul {
 }
 
 .graphic-container-gradient {
-  background-image: linear-gradient(135deg, #271fb3, rgba(255,0,0,0));
+  background-image: linear-gradient(135deg, var(--cont-grad-left), var(--cont-grad-right));
   margin-left: 10px;
 }
 .graphic-container-gradient > p {
-  color: white;
+  color: var(--container-title);
   height: 100%;
   padding: 2px;
   padding-left: 20px;
@@ -123,11 +137,12 @@ ul {
   font-size: 1.2em;
 }
 .graphic-container-inner {
+  color: var(--text);
   border-radius: 10px;
   border-style: solid;
   border-width: 2px;
-  border-color: #f7cbf2;
-  background-image: linear-gradient(to left, #d363c5, #7f42dd);
+  border-color: var(--container-border);
+  background-image: linear-gradient(to left, var(--container-left), var(--container-right));
   width: 100%;
 }
 .graphic-container-inner > ul {
@@ -141,10 +156,23 @@ ul {
 .graphic-container-inner > p {
   margin-left: 20px;
 }
+.graphic-container-inner > ul > li > div > div > p {
+  margin: 0;
+}
+.show-mon-container {
+  margin: 10px;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.show-mon-container > div > p {
+  margin-left: 10px;
+}
 
 /* --- graphic mon --- */
 .graphic-mon-outer {
-  margin: 20px 5px 10px 5px;
+  margin: 20px 0 10px 0;
 }
 .graphic-mon-outer > * {
   margin: auto;
@@ -168,7 +196,6 @@ ul {
   left: -40px;
 }
 .graphic-mon-text {
-  padding-top:5px;
   text-align: center;
 }
 
@@ -184,8 +211,8 @@ ul {
   padding: 8px 4px;
   border-radius: 10px;
   border-width: 0;
-  background-color: #7f42dd;
-  background: #7f42dd;
+  background-color: var(--container-right);
+  background: var(--container-right);
   color: white;
 }
 .react-tabs__tab:focus:after {  
@@ -195,7 +222,7 @@ ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ffffff00;
+  background: transparent;
 }
 .react-tabs__tab-list {
   border-bottom: 0px;
@@ -205,8 +232,9 @@ ul {
   margin-left: 10px;
   margin-top: 30px;
 }
-.source-container > p {  
-  background-image: linear-gradient(135deg, #271fb3, rgba(255,0,0,0));
+.source-container > p {
+  color: var(--text);
+  background-image: linear-gradient(135deg, var(--container-left), transparent);
   padding: 10px;
 }
 

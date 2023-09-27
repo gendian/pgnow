@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js && cd client && npm start",
     "build": "cd client && npm install && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently --kill-others \"node src/index.js\" \"cd client && npm start\""
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "node": "16.19.1"
   },
   "devDependencies": {
+    "concurrently": "^8.2.1",
     "nodemon": "^3.0.1"
   }
 }

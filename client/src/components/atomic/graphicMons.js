@@ -4,6 +4,8 @@ import GraphicMon from "./graphicMon";
 
 export default function GraphicMons(props) {
     const monsToShow = props.monsToShow ? props.monsToShow : [];
+    const showContainer = props.showContainer ? props.showContainer : false;
+    const containerTitle = props.containerTitle ? props.containerTitle : "needs a containerTitle prop";
     var graphicMons = [];
 
     function graphicMonList(monToShow) {
@@ -14,8 +16,11 @@ export default function GraphicMons(props) {
     monsToShow.forEach(graphicMonList);
 
     var mons = 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {graphicMons}
-        </div>;
+        <div className={showContainer ? "show-mon-container":""}>
+            {showContainer ? <div><p>{containerTitle}</p></div> : <div></div>}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)" }}>
+                {graphicMons}
+            </div>
+        </div>
     return mons;
 }

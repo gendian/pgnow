@@ -2,7 +2,7 @@ const fs = require('fs');
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
 const https = require('https');
-const { generateOptions, parseGitResponse, getImage } = require('../utils');
+const { getImage } = require('../utils');
 
 function scrape_leaders()
 {
@@ -37,6 +37,28 @@ function scrape_leaders()
                 positions.forEach(position =>
                 {
                     var mons = position.querySelectorAll("div.pogo-list-item > div.pogo-list-item-desc > div.pogo-list-item-name > a");
+                    mons.forEach(mon => {
+                        var monObj = {
+                            name: mon.textContent
+                        };
+                        
+                        switch(positionCounter) {
+                            case 0:                                
+                                leader.firstMons.push(monObj);
+                                break;
+                            case 1:
+                                leader.secondMons.push(monObj);
+                                break;
+                            case 2:
+                                leader.thirdMons.push(monObj);
+                                break;
+                            default:
+                              break;
+                        }                        
+                        let image = getImage(monObj.name);
+                        global.monMap.set(monObj.name, image);
+                    });
+/*
                     if (positionCounter === 0) {
                         mons.forEach(mon =>
                         {
@@ -59,6 +81,7 @@ function scrape_leaders()
                             global.monMap.set(mon.textContent, image);
                         })
                     }
+                    */
                     positionCounter++;
                 })
 

@@ -21,15 +21,15 @@ export default function Eggs() {
     if (eggs !== null && eggs !== undefined) {
         eggs.forEach(egg => {
             if (egg.eggType.includes("12")) {
-                twok.push(egg.name);
+                twok.push(egg);
             } else if (egg.eggType.includes("5")) {
-                fivek.push(egg.name);
+                fivek.push(egg);
             } else if (egg.eggType.includes("7")) {
-                sevenk.push(egg.name);
+                sevenk.push(egg);
             } else if (egg.eggType.includes("10")) {
-                tenk.push(egg.name);
+                tenk.push(egg);
             } else {
-                twelvek.push(egg.name);
+                twelvek.push(egg);
             }
         });
     }

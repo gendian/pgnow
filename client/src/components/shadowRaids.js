@@ -18,11 +18,11 @@ export default function ShadowRaids() {
     if (shadowRaids !== null && shadowRaids !== undefined) {
         shadowRaids.forEach(shadow_raid => {
             if (shadow_raid.tier.includes("1st")) {
-                onestar.push(shadow_raid.name);
+                onestar.push(shadow_raid);
             } else if (shadow_raid.tier.includes("3rd")) {
-                threestar.push(shadow_raid.name);
+                threestar.push(shadow_raid);
             } else if (shadow_raid.tier.includes("Legendary")) {
-                legendary.push(shadow_raid.name);
+                legendary.push(shadow_raid);
             }
         });
     }

@@ -20,13 +20,13 @@ export default function Raids() {
     if (raids !== null && raids !== undefined) {
         raids.forEach(raid => {
             if (raid.tier.includes("1")) {
-                onestar.push(raid.name);
+                onestar.push(raid);
             } else if (raid.tier.includes("3")) {
-                threestar.push(raid.name);
+                threestar.push(raid);
             } else if (raid.tier.includes("5")) {
-                fivestar.push(raid.name);
+                fivestar.push(raid);
             } else {
-                mega.push(raid.name);
+                mega.push(raid);
             }
         });
     }

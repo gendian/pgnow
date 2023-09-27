@@ -40,9 +40,9 @@ export default function FutureEvents() {
                 const listItem = 
                     <li key={"future-"+count}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
-                            <div>{event.name.replace("Ã©", "é")}</div>
+                            <div><p>{event.name.replace("Ã©", "é")}</p></div>
                             <div>{distance < weekInMillis ? 
-                                <b>
+                                <p><b>
                                     <Countdown date={Date.now() + distance}renderer={props => 
                                         <div>
                                             {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
@@ -52,8 +52,8 @@ export default function FutureEvents() {
                                         </div>
                                     }
                                     />
-                                </b> :
-                                <b>{new Date(event.start).toLocaleDateString(navigator.languages[0], {year:"2-digit",month:"2-digit", day:"2-digit"})}</b>
+                                </b></p> :
+                                <p><b>{new Date(event.start).toLocaleDateString(navigator.languages[0], {year:"2-digit",month:"2-digit", day:"2-digit"})}</b></p>
                                 }
                             </div>
                         </div>
