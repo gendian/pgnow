@@ -52,7 +52,7 @@ export default function CurrentEvents() {
                         </div>
                     </li>;          
                 currentEvents.push(listItem);
-            } else if (distance < weekInMillis) {
+            } else if (distance < weekInMillis && start >= currentTime) {
                 const listItem = 
                 <li key={"future-"+count}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
