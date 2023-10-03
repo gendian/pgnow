@@ -17,6 +17,7 @@ export default function Researches() {
     var exploreList = [];
     var otherList = [];
 
+    var research_element = <div></div>;
     if (researches !== null && researches !== undefined) {
         var count = 0;
         researches.forEach(research => {
@@ -50,27 +51,27 @@ export default function Researches() {
                 otherList.push(researchLi);
             }
             count++;
-        });
-    }    
+        }); 
 
-    const research_element = 
-    <div>
-        <GraphicContainer textToShow="Catch" iconToShow="research">
-            <ul>{catchList}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Throw" iconToShow="research">
-            <ul>{throwList}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Interact" iconToShow="research">
-            <ul>{interactList}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Explore" iconToShow="research">
-            <ul>{exploreList}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Misc." iconToShow="research">
-            <ul>{otherList}</ul>
-        </GraphicContainer>
-    </div>;
+        research_element = 
+        <div>
+            <GraphicContainer textToShow="Catch" iconToShow="research">
+                <ul>{catchList}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Throw" iconToShow="research">
+                <ul>{throwList}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Interact" iconToShow="research">
+                <ul>{interactList}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Explore" iconToShow="research">
+                <ul>{exploreList}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Misc." iconToShow="research">
+                <ul>{otherList}</ul>
+            </GraphicContainer>
+        </div>;
+    }
 
     return research_element;
 }

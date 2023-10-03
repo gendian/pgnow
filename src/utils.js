@@ -23,6 +23,8 @@ function formatName(name) {
     let formattedName = name;    
     formattedName = formattedName.toLowerCase();
     formattedName = formattedName.replace("mega", "");
+    formattedName = formattedName.replace("shadow", "");
+    formattedName = formattedName.replace("primal", "");
     formattedName = formattedName.replace("hisuian", "");
     formattedName = formattedName.replace("galarian", "");
     formattedName = formattedName.replace("alolan", "");
@@ -69,8 +71,15 @@ function getImage(name) {
 }
 
 function load_image(name) {
-    var formattedName  = formatName(name);
-    return global.monMap.get(formattedName);
+    var image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png";
+    if (name !== null && name !== undefined) {
+        var formattedName = formatName(name);
+        var imageRetrieved = global.monMap.get(formattedName);
+        if (imageRetrieved !== null && imageRetrieved !== undefined) {
+            image = imageRetrieved;
+        }
+    }
+    return image;
 }
 
 module.exports = { generateOptions, parseGitResponse, getImage, load_image }

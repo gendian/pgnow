@@ -27,6 +27,7 @@ export default function FutureEvents() {
     
     var count = 0;
     let currentTime = new Date().getTime();
+    var event_element = <div></div>;
     if (events !== null && events !== undefined) {
         events.sort(function(a,b){return Date.parse(a.start)-Date.parse(b.start)});
         events.forEach(event => {
@@ -84,35 +85,35 @@ export default function FutureEvents() {
             }
 
         });
-    }
 
-    const event_element = 
-    <div>
-        <GraphicContainer textToShow="Starting soon" iconToShow="upcoming">
-            <ul>{comingSoon}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Community Days" iconToShow="upcoming">
-            <ul>{communityEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Raid" iconToShow="upcoming">
-            <ul>{raidEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Spotlight" iconToShow="upcoming">
-            <ul>{spotlightEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Hatch" iconToShow="upcoming">
-            <ul>{hatchEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Showcase" iconToShow="upcoming">
-            <ul>{showcaseEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="League" iconToShow="upcoming">
-            <ul>{leagueEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Future events" iconToShow="upcoming">
-            <ul>{futureEvents}</ul>
-        </GraphicContainer>
-    </div>;
+        event_element = 
+        <div>
+            <GraphicContainer textToShow="Starting soon" iconToShow="upcoming">
+                <ul>{comingSoon}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Community Days" iconToShow="upcoming">
+                <ul>{communityEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Raid" iconToShow="upcoming">
+                <ul>{raidEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Spotlight" iconToShow="upcoming">
+                <ul>{spotlightEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Hatch" iconToShow="upcoming">
+                <ul>{hatchEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Showcase" iconToShow="upcoming">
+                <ul>{showcaseEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="League" iconToShow="upcoming">
+                <ul>{leagueEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Future events" iconToShow="upcoming">
+                <ul>{futureEvents}</ul>
+            </GraphicContainer>
+        </div>;
+    }
 
     return event_element;
 }

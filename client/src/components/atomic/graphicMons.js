@@ -1,7 +1,6 @@
 import React from "react";
 import GraphicMon from "./graphicMon";
 
-
 export default function GraphicMons(props) {
     const monsToShow = props.monsToShow ? props.monsToShow : [];
     const showContainer = props.showContainer ? props.showContainer : false;

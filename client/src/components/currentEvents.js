@@ -20,6 +20,7 @@ export default function CurrentEvents() {
     var comingSoon = [];
     let currentTime = new Date().getTime();
     var count = 0;
+    var event_element = <div></div>;
     if (events !== null && events !== undefined) {
         events.sort(function(a,b){return Date.parse(a.end)-Date.parse(b.end)});
         events.forEach(event => {
@@ -76,17 +77,17 @@ export default function CurrentEvents() {
             }
             count++;
         });
-    }
 
-    const event_element = 
-    <div>
-        <GraphicContainer textToShow="Live Events" iconToShow="event">
-            <ul>{currentEvents}</ul>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Starting soon" iconToShow="upcoming">
-            <ul>{comingSoon}</ul>
-        </GraphicContainer>
-    </div>;
+        event_element = 
+        <div>
+            <GraphicContainer textToShow="Live Events" iconToShow="event">
+                <ul>{currentEvents}</ul>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Starting soon" iconToShow="upcoming">
+                <ul>{comingSoon}</ul>
+            </GraphicContainer>
+        </div>;
+    }
 
     return event_element;
 }

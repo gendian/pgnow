@@ -18,6 +18,7 @@ export default function Eggs() {
     var tenk = [];
     var twelvek = [];
 
+    var egg_element = <div></div>;
     if (eggs !== null && eggs !== undefined) {
         eggs.forEach(egg => {
             if (egg.eggType.includes("12")) {
@@ -31,27 +32,27 @@ export default function Eggs() {
             } else {
                 twelvek.push(egg);
             }
-        });
-    }
+        }); 
 
-    const egg_element = 
-    <div>
-        <GraphicContainer textToShow="2km" iconToShow="egg">
-            <GraphicMons monsToShow={twok}/>
-        </GraphicContainer>
-        <GraphicContainer textToShow="5km" iconToShow="egg">
-            <GraphicMons monsToShow={fivek}/>
-        </GraphicContainer>
-        <GraphicContainer textToShow="7km" iconToShow="egg">
-            <GraphicMons monsToShow={sevenk}/>
-        </GraphicContainer>
-        <GraphicContainer textToShow="10km" iconToShow="egg">
-            <GraphicMons monsToShow={tenk}/>
-        </GraphicContainer>
-        <GraphicContainer textToShow="12km" iconToShow="egg">
-            <GraphicMons monsToShow={twelvek}/>
-        </GraphicContainer>
-    </div>;
+        egg_element = 
+        <div>
+            <GraphicContainer textToShow="2km" iconToShow="egg">
+                <GraphicMons monsToShow={twok}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="5km" iconToShow="egg">
+                <GraphicMons monsToShow={fivek}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="7km" iconToShow="egg">
+                <GraphicMons monsToShow={sevenk}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="10km" iconToShow="egg">
+                <GraphicMons monsToShow={tenk}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="12km" iconToShow="egg">
+                <GraphicMons monsToShow={twelvek}/>
+            </GraphicContainer>
+        </div>;
+    }
 
     return egg_element;
 

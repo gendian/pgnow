@@ -10,7 +10,6 @@ function scrape_leaders()
         JSDOM.fromURL("https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders", {
         })
         .then((dom) => {
-
             var partyTables = dom.window.document.querySelectorAll('.gorocket-party-table');
             var leaders = [];
             var leaderCounter = 0;
@@ -58,30 +57,6 @@ function scrape_leaders()
                         let image = getImage(monObj.name);
                         global.monMap.set(monObj.name, image);
                     });
-/*
-                    if (positionCounter === 0) {
-                        mons.forEach(mon =>
-                        {
-                            leader.firstMons.push(mon.textContent);
-                            let image = getImage(mon.textContent);
-                            global.monMap.set(mon.textContent, image);
-                        })
-                    } else if (positionCounter === 1) {
-                        mons.forEach(mon =>
-                        {
-                            leader.secondMons.push(mon.textContent);
-                            let image = getImage(mon.textContent);
-                            global.monMap.set(mon.textContent, image);
-                        })
-                    } else if (positionCounter === 2) {
-                        mons.forEach(mon =>
-                        {
-                            leader.thirdMons.push(mon.textContent);
-                            let image = getImage(mon.textContent);
-                            global.monMap.set(mon.textContent, image);
-                        })
-                    }
-                    */
                     positionCounter++;
                 })
 

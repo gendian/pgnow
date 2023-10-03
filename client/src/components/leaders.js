@@ -12,12 +12,13 @@ export default function Leaders() {
           .then((data) => setLeaders(data));
     }, []);
 
+    var leader_element = <div></div>;
     if (leaders !== null) {
         var arlo = leaders[0];
         var cliff = leaders[1];
         var sierra = leaders[2];        
 
-        const leader_element = 
+        leader_element = 
         <div>
             <GraphicContainer textToShow="Arlo" iconToShow="leader">
                 <GraphicMons monsToShow={arlo.firstMons} showContainer="true" containerTitle="1st Pokemon"/>
@@ -35,7 +36,7 @@ export default function Leaders() {
                 <GraphicMons monsToShow={sierra.thirdMons} showContainer="true" containerTitle="3rd Pokemon"/>
             </GraphicContainer>
         </div>;
-
-        return leader_element;
     }
+
+    return leader_element;
 }

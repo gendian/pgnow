@@ -15,6 +15,8 @@ export default function ShadowRaids() {
     var onestar = [];
     var threestar = [];
     var legendary = [];
+
+    var raid_element = <div></div>;
     if (shadowRaids !== null && shadowRaids !== undefined) {
         shadowRaids.forEach(shadow_raid => {
             if (shadow_raid.tier.includes("1st")) {
@@ -25,21 +27,21 @@ export default function ShadowRaids() {
                 legendary.push(shadow_raid);
             }
         });
-    }
 
-    const raid_element = 
-    <div>
-        <GraphicContainer textToShow="Shadow 1* Raids" iconToShow="shraid">
-            <GraphicMons monsToShow={onestar}/>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Shadow 3* Raids" iconToShow="shraid">
-            <GraphicMons monsToShow={threestar}/>
-        </GraphicContainer>
-        <GraphicContainer textToShow="Shadow Legendary Raids" iconToShow="shraid">
-            <GraphicMons monsToShow={legendary}/>
-            <p>*Only available on Saturdays and Sundays</p>
-        </GraphicContainer>
-    </div>;
+        raid_element = 
+        <div>
+            <GraphicContainer textToShow="Shadow 1* Raids" iconToShow="shraid">
+                <GraphicMons monsToShow={onestar}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Shadow 3* Raids" iconToShow="shraid">
+                <GraphicMons monsToShow={threestar}/>
+            </GraphicContainer>
+            <GraphicContainer textToShow="Shadow Legendary Raids" iconToShow="shraid">
+                <GraphicMons monsToShow={legendary}/>
+                <p>*Only available on Saturdays and Sundays</p>
+            </GraphicContainer>
+        </div>;
+    }
 
     return raid_element;
 }

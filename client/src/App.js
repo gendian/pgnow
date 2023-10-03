@@ -8,7 +8,9 @@ import Researches from "./components/researches";
 import Raids from "./components/raids";
 import ShadowRaids from "./components/shadowRaids";
 import Leaders from "./components/leaders";
+import TierList from "./components/tierList";
 import WelcomeBanner from "./components/welcomeBanner";
+import ViewDescription from "./components/viewDescription";
 import SourceLink from "./components/atomic/sourceLink";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -28,17 +30,27 @@ function App() {
       <Tabs forceRenderTabPanel={true}>
         <TabList>
           <Tab>Events</Tab>
+          <Tab>Upcoming</Tab>
+          <Tab>Tier List</Tab>
           <Tab>Raids</Tab>
           <Tab>Sh.Raids</Tab>
           <Tab>Eggs</Tab>
           <Tab>Leaders</Tab>          
           <Tab>Researches</Tab>
-          <Tab>Upcoming</Tab>
         </TabList>
           <TabPanel>
             <WelcomeBanner/>
             <CurrentEvents/>
             <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
+          </TabPanel>
+          <TabPanel>
+            <FutureEvents/>
+            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
+          </TabPanel>        
+          <TabPanel>
+            <ViewDescription textToShow="Top 10 pokemon from the mega, shadow and regular raid attacker list"/>
+            <TierList/>
+            <SourceLink textToShow="Credit to GamePress for this info" linkToShow="https://gamepress.gg/pokemongo/attackers-tier-list"/>
           </TabPanel>
           <TabPanel>
             <Raids/>
@@ -59,10 +71,6 @@ function App() {
           <TabPanel>
             <Researches/>
             <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/research/"/>
-          </TabPanel>        
-          <TabPanel>
-            <FutureEvents/>
-            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
           </TabPanel>
       </Tabs>
       </div>

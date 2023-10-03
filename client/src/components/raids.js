@@ -17,6 +17,7 @@ export default function Raids() {
     var fivestar = [];
     var mega = [];
 
+    var raid_element = <div></div>;
     if (raids !== null && raids !== undefined) {
         raids.forEach(raid => {
             if (raid.tier.includes("1")) {
@@ -29,23 +30,23 @@ export default function Raids() {
                 mega.push(raid);
             }
         });
-    }
 
-    const raid_element = 
-        <div>
-            <GraphicContainer textToShow="1* Raids" iconToShow="raid">
-                <GraphicMons monsToShow={onestar}/>
-            </GraphicContainer>
-            <GraphicContainer textToShow="3* Raids" iconToShow="raid">
-                <GraphicMons monsToShow={threestar}/>
-            </GraphicContainer>
-            <GraphicContainer textToShow="5* Raids" iconToShow="raid">
-                <GraphicMons monsToShow={fivestar}/>
-            </GraphicContainer>
-            <GraphicContainer textToShow="Mega Raids" iconToShow="raid">
-                <GraphicMons monsToShow={mega}/>
-            </GraphicContainer>
-        </div>;
+        raid_element = 
+            <div>
+                <GraphicContainer textToShow="1* Raids" iconToShow="raid">
+                    <GraphicMons monsToShow={onestar}/>
+                </GraphicContainer>
+                <GraphicContainer textToShow="3* Raids" iconToShow="raid">
+                    <GraphicMons monsToShow={threestar}/>
+                </GraphicContainer>
+                <GraphicContainer textToShow="5* Raids" iconToShow="raid">
+                    <GraphicMons monsToShow={fivestar}/>
+                </GraphicContainer>
+                <GraphicContainer textToShow="Mega Raids" iconToShow="raid">
+                    <GraphicMons monsToShow={mega}/>
+                </GraphicContainer>
+            </div>;
+    }
 
     return raid_element;
 }
