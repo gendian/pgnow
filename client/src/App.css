@@ -13,9 +13,16 @@
   --icon-background: #c82626;
 }
 
+@font-face {
+  font-family: '8bit';
+  src: local('8bitwonder'),
+       url('./assets/fonts/8-BIT WONDER.TTF') format('TTF');
+}
+
 ul {
   list-style-type: none;
   padding: 0;
+  font-family: 8bitwonder
 }
 
 .App {
@@ -239,6 +246,11 @@ ul {
 }
 
 .welcome-banner {
+  margin-top: 32px;
+  margin-left: 10px;
+}
+
+.view-description {
   margin-top: 32px;
   margin-left: 10px;
 }

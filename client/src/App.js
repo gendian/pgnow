@@ -12,6 +12,7 @@ import TierList from "./components/tierList";
 import WelcomeBanner from "./components/welcomeBanner";
 import ViewDescription from "./components/viewDescription";
 import SourceLink from "./components/atomic/sourceLink";
+import TestDisplay from "./components/atomic/testDisplay";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
@@ -48,7 +49,7 @@ function App() {
             <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
           </TabPanel>        
           <TabPanel>
-            <ViewDescription textToShow="Top 10 pokemon from the mega, shadow and regular raid attacker list"/>
+            <ViewDescription textToShow="Top 15 pokemon from the mega, shadow and regular raid attacker list"/>
             <TierList/>
             <SourceLink textToShow="Credit to GamePress for this info" linkToShow="https://gamepress.gg/pokemongo/attackers-tier-list"/>
           </TabPanel>

@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('https');
-const { generateOptions, parseGitResponse, getImage } = require('../utils');
+const { generateOptions, parseGitResponse, cacheImage } = require('../utils');
 
 function scrape_researches()
 {    

@@ -1,5 +1,5 @@
 const https = require('https');
-const { generateOptions, parseGitResponse, getImage } = require('../utils');
+const { generateOptions, parseGitResponse, cacheImage } = require('../utils');
 
 function scrape_eggs()
 {    
@@ -19,9 +19,8 @@ function scrape_eggs()
             var content = parseGitResponse(data);
             global.eggs = content;
             content.forEach(function(item) {
-                let image = getImage(item.name);
-                global.monMap.set(item.name, image)}
-            );
+                cacheImage(item.name);
+            });
         });
     }).on('error', (e) => {
         console.log(e);

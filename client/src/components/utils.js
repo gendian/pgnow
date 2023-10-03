@@ -1,3 +1,5 @@
+
+// not currently used
 export function formatName(name) {
     let formattedName = name;    
     formattedName = formattedName.toLowerCase();

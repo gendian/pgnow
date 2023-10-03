@@ -2,7 +2,7 @@ const fs = require('fs');
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
 const https = require('https');
-const { getImage } = require('../utils');
+const { cacheImage } = require('../utils');
 
 function scrape_leaders()
 {
@@ -54,8 +54,7 @@ function scrape_leaders()
                             default:
                               break;
                         }                        
-                        let image = getImage(monObj.name);
-                        global.monMap.set(monObj.name, image);
+                        cacheImage(monObj.name);
                     });
                     positionCounter++;
                 })

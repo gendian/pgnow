@@ -1,6 +1,6 @@
 const fs = require('fs');
 const https = require('https');
-const { generateOptions, parseGitResponse, getImage } = require('../utils');
+const { generateOptions, parseGitResponse, cacheImage } = require('../utils');
 
 function scrape_events()
 {    
@@ -19,10 +19,6 @@ function scrape_events()
             console.log('Fetching events');
             var content = parseGitResponse(data);
             global.events = content;
-            content.forEach(function(item) {
-                let image = getImage(item.name);
-                global.monMap.set(item.name, image)}
-            );
         });
     }).on('error', (e) => {
         console.log(e);

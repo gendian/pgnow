@@ -1,6 +1,6 @@
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
-const { getImage } = require('../utils');
+const { cacheImage } = require('../utils');
 
 function scrape_tierList()
 {
@@ -41,26 +41,25 @@ function scrape_tierList()
                 pokemon.name = displayText;
 
                 if (textLower.includes("mega") || textLower.includes("primal")) {
-                    if (megaCounter < 10) {
+                    if (megaCounter < 15) {
                         pokemon.tier = "mega";
                         megaList.push(pokemon);
                     }
                     megaCounter++;
                 } else if (textLower.includes("shadow")) {
-                    if (shadowCounter < 10) {
+                    if (shadowCounter < 15) {
                         pokemon.tier = "shadow";
                         shadowList.push(pokemon);
                     }
                     shadowCounter++;
                 } else {
-                    if (regularCounter < 10) {
+                    if (regularCounter < 15) {
                         regularList.push(pokemon);
                     }
                     regularCounter++;
                 }
 
-                let image = getImage(pokemon.name);
-                global.monMap.set(pokemon.name, image);
+                cacheImage(pokemon.name);
             })
             console.log("Scraping tierList");
 

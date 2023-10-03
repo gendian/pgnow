@@ -14,6 +14,7 @@ router.get('/content/:contentType', controllers.getContent) // eggs, events, rai
 router.get('/pokeapi/:mon', controllers.getPokeAPI) // PokeAPI
 
 router.get('/loadImage/:name', controllers.loadImage) // Load from buffer
+router.get('/loadImageList', controllers.loadImageList) // Load from buffer
 
 router.get('/shadow_raids', controllers.getShadows) // shadow raids
 router.get('/events', controllers.getEvents) // events

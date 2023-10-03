@@ -1,6 +1,6 @@
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
-const { getImage } = require('../utils');
+const { cacheImage } = require('../utils');
 
 function scrape_raids()
 {
@@ -47,8 +47,7 @@ function scrape_raids()
                     } else {
                         raids.push(pokemon);
                     }
-                    let image = getImage(pokemon.name);
-                    global.monMap.set(pokemon.name, image);
+                    cacheImage(pokemon.name);
                 }
             })
             console.log("Scraping raids");

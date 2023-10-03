@@ -7,7 +7,7 @@ const { get_eggs } = require('./content/eggs');
 const { get_researches } = require('./content/researches');
 const { get_leaders } = require('./content/leaders');
 const { get_tierList } = require('./content/tierList');
-const { load_image } = require('./utils');
+const { load_image, load_image_list } = require('./utils');
 
 const getUser= async function (req, res) {
     const user = req.params.user;
@@ -105,4 +105,8 @@ const loadImage= async function (req, res) {
     res.json(load_image(req.params.name));
 }
 
-module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, loadImage, getTierList }
+const loadImageList= async function (req, res) {
+    res.json(load_image_list());
+}
+
+module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, loadImage, loadImageList, getTierList }
