@@ -24,7 +24,7 @@ export default function Researches() {
             var rewards = research.rewards;
             const researchLi = 
                 <li key={"research-"+count}>
-                    <b>{research.text.replace("Ã©", "é")}</b> -  
+                    {research.text.replace("Ã©", "é")} -  
                     {rewards.map((reward, i, rewards) => 
                         {
                             if (rewards.length === 1) {

@@ -37,18 +37,16 @@ export default function CurrentEvents() {
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                             <div>{event.name.replace("Ã©", "é")}</div>
                             <div className={distance < 172800000 ? "countdown-soon" : ""}>
-                                <b>
-                                    <Countdown date={Date.now() + distance}renderer={props => 
-                                        <div>
-                                            {distance > dayInMillis ? props.days + (props.days===1?" day ":" days ") : ""}
-                                            {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
-                                            {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
-                                            {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
-                                                left
-                                        </div>
-                                    }
-                                    />
-                                </b>
+                                <Countdown date={Date.now() + distance}renderer={props => 
+                                    <div>
+                                        {distance > dayInMillis ? props.days + (props.days===1?" day ":" days ") : ""}
+                                        {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
+                                        {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
+                                        {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
+                                            left
+                                    </div>
+                                }
+                                />
                             </div>
                         </div>
                     </li>;          
@@ -59,17 +57,15 @@ export default function CurrentEvents() {
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                         <div>{event.name.replace("Ã©", "é")}</div>
                         <div>
-                            <b>
-                                <Countdown date={Date.now() + distance}renderer={props => 
-                                    <div>
-                                        {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
-                                        {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
-                                        {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
-                                        {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
-                                    </div>
-                                }
-                                />
-                            </b>
+                            <Countdown date={Date.now() + distance}renderer={props => 
+                                <div>
+                                    {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
+                                    {distance > hourInMillis && distance < dayInMillis*2 ? props.hours + (props.hours===1?" hour ":" hours "): ""}
+                                    {distance < dayInMillis ? props.minutes + (props.minutes===1?" minute ":" minutes "): ""}
+                                    {distance < hourInMillis ? props.seconds + (props.seconds===1?" second ":" seconds "): ""}
+                                </div>
+                            }
+                            />
                         </div>
                     </div>
                 </li>;

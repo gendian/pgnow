@@ -42,36 +42,42 @@ function App() {
           <TabPanel>
             <WelcomeBanner/>
             <CurrentEvents/>
-            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
+            <SourceLink textToShow="Credit to LeekDuck for this info." linkToShow="https://leekduck.com/events/"/>
           </TabPanel>
           <TabPanel>
+            <ViewDescription textToShow="Events that are starting soon."/>
             <FutureEvents/>
             <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
           </TabPanel>        
           <TabPanel>
-            <ViewDescription textToShow="Top 15 pokemon from the mega, shadow and regular raid attacker list"/>
+            <ViewDescription textToShow="Top 15 pokemon from the mega, shadow and regular raid attacker list."/>
             <TierList/>
-            <SourceLink textToShow="Credit to GamePress for this info" linkToShow="https://gamepress.gg/pokemongo/attackers-tier-list"/>
+            <SourceLink textToShow="Credit to GamePress for this info." linkToShow="https://gamepress.gg/pokemongo/attackers-tier-list"/>
           </TabPanel>
           <TabPanel>
+            <ViewDescription textToShow="Current raid bosses."/>
             <Raids/>
-            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info" linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
+            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info." linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
           </TabPanel>
           <TabPanel>
+            <ViewDescription textToShow="Current shadow raid bosses."/>
             <ShadowRaids/>
-            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info" linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
+            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info." linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
           </TabPanel>
           <TabPanel>
+            <ViewDescription textToShow="Pokemon that can hatch from eggs."/>
             <Eggs/>
-            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/eggs/"/>
+            <SourceLink textToShow="Credit to LeekDuck for this info." linkToShow="https://leekduck.com/eggs/"/>
           </TabPanel>
           <TabPanel>
+            <ViewDescription textToShow="Rocket Go Leaders and their team line ups."/>
             <Leaders/>
-            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info" linkToShow="https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders"/>
+            <SourceLink textToShow="Credit to Pokemon Go Fandom for this info." linkToShow="https://pokemongo.fandom.com/wiki/Team_GO_Rocket_Leaders"/>
           </TabPanel>
           <TabPanel>
+            <ViewDescription textToShow="Current pool of field researches."/>
             <Researches/>
-            <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/research/"/>
+            <SourceLink textToShow="Credit to LeekDuck for this info." linkToShow="https://leekduck.com/research/"/>
           </TabPanel>
       </Tabs>
       </div>

@@ -28,6 +28,7 @@ function formatName(name) {
     formattedName = formattedName.replaceAll(" ", "");
     formattedName = formattedName.replaceAll("(", "");
     formattedName = formattedName.replaceAll(")", "");
+    formattedName = formattedName.replaceAll("'", "");
 
     // move mega to the end of the name
     if (formattedName.includes("mega")) {

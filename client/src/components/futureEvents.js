@@ -43,7 +43,7 @@ export default function FutureEvents() {
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                             <div><p>{event.name.replace("Ã©", "é")}</p></div>
                             <div>{distance < weekInMillis ? 
-                                <p><b>
+                                <p>
                                     <Countdown date={Date.now() + distance}renderer={props => 
                                         <div>
                                             {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
@@ -53,8 +53,8 @@ export default function FutureEvents() {
                                         </div>
                                     }
                                     />
-                                </b></p> :
-                                <p><b>{new Date(event.start).toLocaleDateString(navigator.languages[0], {year:"2-digit",month:"2-digit", day:"2-digit"})}</b></p>
+                                </p> :
+                                <p>{new Date(event.start).toLocaleDateString(navigator.languages[0], {year:"2-digit",month:"2-digit", day:"2-digit"})}</p>
                                 }
                             </div>
                         </div>

@@ -18,8 +18,13 @@ export default function GraphicMon(props) {
             <div className="graphic-mon-background"></div>
             <div className="graphic-mon-image">
                 <img src={image} alt={monToShow.name}></img>
+                {
+                    monToShow.name.toLowerCase().includes("shadow") ? 
+                    <div className="graphic-mon-shadow"></div> :
+                    <div></div>
+                }
             </div>
-            <div className="graphic-mon-text"><p>{monToShow.name}</p></div>
+            <div className="graphic-mon-text"><p>{monToShow.name}</p></div>           
         </div>;
     return graphicContainer;
 }

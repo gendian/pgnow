@@ -14,21 +14,19 @@
 }
 
 @font-face {
-  font-family: '8bit';
-  src: local('8bitwonder'),
-       url('./assets/fonts/8-BIT WONDER.TTF') format('TTF');
+  font-family: 'pixelreg';
+  src: local('pixelreg'),
+       url('./assets/fonts/pixelreg.woff2') format('woff2');
 }
 
 ul {
   list-style-type: none;
   padding: 0;
-  font-family: 8bitwonder
 }
 
 .App {
   text-align: left;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
-  Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "pixelreg";
   background: linear-gradient(90deg, var(--background-left), var(--background-right));
 }
 
@@ -48,14 +46,17 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: calc(6px + 1.5vmin);
+  font-size: calc(3vmin);
   color: white;
   padding-left: 20px;
   padding-right: 20px;
 }
 @media (min-width: 600px) {
   .App-header, .App-body {
-    font-size: calc(6px + 1vmin);
+    font-size: calc(1.2vmin);
+  }
+  .react-tabs {
+    min-width: 95%;
   }
 }
 
@@ -130,6 +131,10 @@ ul {
   background: url("./assets/images/icons/upcoming-icon.png") no-repeat center center;
   background-size: contain;
 }
+.graphic-container-icon.mega {
+  background: url("./assets/images/icons/mega-icon.png") no-repeat center center;
+  background-size: contain;
+}
 
 .graphic-container-gradient {
   background-image: linear-gradient(135deg, var(--cont-grad-left), var(--cont-grad-right));
@@ -138,10 +143,11 @@ ul {
 .graphic-container-gradient > p {
   color: var(--container-title);
   height: 100%;
-  padding: 2px;
+  padding: 0px;
+  padding-top: 4px;
   padding-left: 20px;
   margin: 0px;
-  font-size: 1.2em;
+  margin-bottom: -10px;
 }
 .graphic-container-inner {
   color: var(--text);
@@ -204,6 +210,22 @@ ul {
 }
 .graphic-mon-text {
   text-align: center;
+  max-width: 90%;
+}
+.graphic-mon-shadow {
+  width: 34px;
+  height: 34px;
+  object-fit: cover;
+  position: relative;
+  top: -152px;
+  left: 0px;
+  background: url("./assets/images/icons/shraid-icon.png") no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
+  background-color: var(--icon-background);
+}
+.graphic-shadow-container {
+  width: 34px;
 }
 
 /* --- Tabs --- */
@@ -211,16 +233,19 @@ ul {
   margin-top:10px;
 }
 .react-tabs__tab {
-  padding: 8px 4px;
-  margin: 1px;
+  margin: 2px;
+  padding: 8px 3px 0px 5px;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: var(--title);
+  color: var(--title);
 }
 .react-tabs__tab.react-tabs__tab--selected {
-  padding: 8px 4px;
-  border-radius: 10px;
-  border-width: 0;
+  border-style: solid;
   background-color: var(--container-right);
   background: var(--container-right);
-  color: white;
+  color: var(--text);
 }
 .react-tabs__tab:focus:after {  
   content: '';

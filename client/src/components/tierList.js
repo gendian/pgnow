@@ -16,10 +16,10 @@ export default function TierList() {
 
     if (tierList !== null && tierList !== undefined) {
         tier_element = <div>
-            <GraphicContainer textToShow="Mega" iconToShow="event">
+            <GraphicContainer textToShow="Mega" iconToShow="mega">
                 <GraphicMons monsToShow={tierList.mega}/>
             </GraphicContainer>
-            <GraphicContainer textToShow="Shadow" iconToShow="event">
+            <GraphicContainer textToShow="Shadow" iconToShow="shraid">
                 <GraphicMons monsToShow={tierList.shadow}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Regular" iconToShow="event">
