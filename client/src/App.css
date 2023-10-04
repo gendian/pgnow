@@ -147,7 +147,6 @@ ul {
   padding-top: 4px;
   padding-left: 20px;
   margin: 0px;
-  margin-bottom: -10px;
 }
 .graphic-container-inner {
   color: var(--text);
@@ -234,7 +233,6 @@ ul {
 }
 .react-tabs__tab {
   margin: 2px;
-  padding: 8px 3px 0px 5px;
   border-radius: 10px;
   border-width: 2px;
   border-style: dashed;
