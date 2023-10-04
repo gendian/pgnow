@@ -51,7 +51,17 @@ export default function CurrentEvents() {
                         </div>
                     </li>;          
                 currentEvents.push(listItem);
-            } else if (distance < weekInMillis && start >= currentTime) {
+            }
+            count++;
+        });
+
+        events.sort(function(a,b){return Date.parse(a.start)-Date.parse(b.start)});
+        events.forEach(event => {
+            // Countdown Timer
+            var start = new Date(Date.parse(event.start));
+            var countDownDate = Date.parse(event.start);
+            var distance = countDownDate - currentTime;
+            if (distance < weekInMillis && start >= currentTime) {
                 const listItem = 
                 <li key={"future-"+count}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
@@ -71,7 +81,6 @@ export default function CurrentEvents() {
                 </li>;
                 comingSoon.push(listItem);
             }
-            count++;
         });
 
         event_element = 
