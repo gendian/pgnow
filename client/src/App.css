@@ -14,8 +14,8 @@
 }
 
 @font-face {
-  font-family: 'pixelreg';
-  src: local('pixelreg'),
+  font-family: "myfont";
+  src: local("myfont"),
        url('./assets/fonts/pixelreg.woff2') format('woff2');
 }
 
@@ -26,7 +26,7 @@ ul {
 
 .App {
   text-align: left;
-  font-family: "pixelreg";
+  font-family: "myfont";
   background: linear-gradient(90deg, var(--background-left), var(--background-right));
 }
 

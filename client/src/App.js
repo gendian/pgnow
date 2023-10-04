@@ -20,6 +20,7 @@ import 'react-tabs/style/react-tabs.css';
 import "./App.css";
 
 function App() {
+  document.title = "GO Now";
   return (
     <div className="App">
       {/*
