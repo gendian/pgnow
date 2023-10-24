@@ -10,6 +10,7 @@ const { scrape_eggs } = require('./content/eggs');
 const { scrape_researches } = require('./content/researches');
 const { scrape_leaders } = require('./content/leaders');
 const { scrape_tierList } = require('./content/tierList');
+const cron = require("node-cron");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -28,6 +29,15 @@ scrape_eggs();
 scrape_researches();
 scrape_leaders();
 scrape_tierList();
+
+cron.schedule('0 0 10/2 * * *', () => {
+  scrape_events();
+  scrape_raids();
+  scrape_eggs();
+  scrape_researches();
+  scrape_leaders();
+  scrape_tierList();
+});
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
