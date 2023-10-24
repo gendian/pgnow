@@ -212,12 +212,12 @@ ul {
   max-width: 90%;
 }
 .graphic-mon-shadow {
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
   object-fit: cover;
   position: relative;
-  top: -152px;
-  left: 0px;
+  top: -146px;
+  left: 12px;
   background: url("./assets/images/icons/shraid-icon.png") no-repeat center center;
   background-size: contain;
   border-radius: 50%;
@@ -238,6 +238,8 @@ ul {
   border-style: dashed;
   border-color: var(--title);
   color: var(--title);
+  padding: 8px 12px 0px 12px;
+  bottom: 0px;
 }
 .react-tabs__tab.react-tabs__tab--selected {
   border-style: solid;
