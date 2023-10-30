@@ -4,9 +4,11 @@ const constants=require('./constants');
 const { get_events } = require('./content/events');
 const { get_raids, get_shadows } = require('./content/raids');
 const { get_eggs } = require('./content/eggs');
+const { get_wilds } = require('./content/wilds');
 const { get_researches } = require('./content/researches');
 const { get_leaders } = require('./content/leaders');
 const { get_tierList } = require('./content/tierList');
+const { get_tweets } = require('./content/tweets');
 const { load_image, load_image_list } = require('./utils');
 
 const getUser= async function (req, res) {
@@ -77,6 +79,10 @@ const getEggs= async function (req, res) {
     res.json(get_eggs());
 }
 
+const getWilds= async function (req, res) {
+    res.json(get_wilds());
+}
+
 const getResearches= async function (req, res) {
     res.json(get_researches());
 }
@@ -87,6 +93,10 @@ const getLeaders= async function (req, res) {
 
 const getTierList= async function (req, res) {
     res.json(get_tierList());
+}
+
+const getTweets= async function (req, res) {
+    res.json(get_tweets());
 }
 
 const getPokeAPI= async function (req, res) {
@@ -109,4 +119,4 @@ const loadImageList= async function (req, res) {
     res.json(load_image_list());
 }
 
-module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, loadImage, loadImageList, getTierList }
+module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getWilds, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, loadImage, loadImageList, getTierList, getTweets }

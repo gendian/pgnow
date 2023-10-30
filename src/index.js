@@ -10,7 +10,7 @@ const { scrape_eggs } = require('./content/eggs');
 const { scrape_researches } = require('./content/researches');
 const { scrape_leaders } = require('./content/leaders');
 const { scrape_tierList } = require('./content/tierList');
-const { scrape_tweets } = require('./content/infographics');
+const { scrape_wilds } = require('./content/wilds');
 const cron = require("node-cron");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -24,21 +24,10 @@ app.use('/pgnow_api', routes);
 app.use(express.json());
 app.use(cors());
 
-scrape_events();
-scrape_raids();
-scrape_eggs();
-scrape_researches();
-scrape_leaders();
-scrape_tierList();
-scrape_tweets();
+scrape_data();
 
 cron.schedule('0 0 10/2 * * *', () => {
-  scrape_events();
-  scrape_raids();
-  scrape_eggs();
-  scrape_researches();
-  scrape_leaders();
-  scrape_tierList();
+  scrape_data();
 });
 
 app.get("/api", (req, res) => {
@@ -48,4 +37,14 @@ app.get("/api", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+function scrape_data() {
+  scrape_events();
+  scrape_raids();
+  scrape_eggs();
+  scrape_researches();
+  scrape_leaders();
+  scrape_tierList();
+  scrape_wilds();
+}
 

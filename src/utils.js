@@ -85,10 +85,12 @@ function formatName(name) {
     }
     if (formattedName.includes("mime") && formattedName.includes("jr")) {
         formattedName = "mime-jr";
-    }
-    if (formattedName.includes("unown")) {
+    } else if (formattedName.includes("unown")) {
         // fiddle with the request
         formattedName = "unown";
+    } else if (formattedName.includes("pumpkaboo")) {
+        // fiddle with the request
+        formattedName = "pumpkaboo-average";
     }
     
     return formattedName;
