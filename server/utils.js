@@ -88,6 +88,9 @@ function formatName(name) {
         formattedName = formattedName.replace("50", "-50");
         formattedName = formattedName.replace("complete", "-complete");
     }
+    if (formattedName.includes("cempasúchil")) {
+        formattedName = formattedName.replace("cempasúchil", "");
+    }    
     if (formattedName.includes("mime") && formattedName.includes("jr")) {
         formattedName = "mime-jr";
     } else if (formattedName.includes("unown")) {

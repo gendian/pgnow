@@ -142,6 +142,10 @@ ul {
   background: url("./assets/images/icons/mega-icon.png") no-repeat center center;
   background-size: contain;
 }
+.graphic-container-icon.wild {
+  background: url("./assets/images/icons/wild-icon.png") no-repeat center center;
+  background-size: contain;
+}
 
 .graphic-container-gradient {
   background-image: linear-gradient(135deg, var(--cont-title-grad-left), var(--cont-title-grad-right));
@@ -232,6 +236,17 @@ ul {
   background-size: contain;
   border-radius: 50%;
   background-color: var(--icon-background);
+}
+.graphic-mon-shiny {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  position: relative;
+  top: -146px;
+  left: 12px;
+  background: url("./assets/images/icons/shiny-icon.png") no-repeat center center;
+  background-size: contain;
+  border-radius: 50%;
 }
 .graphic-shadow-container {
   width: 34px;

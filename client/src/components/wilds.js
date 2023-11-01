@@ -16,7 +16,7 @@ export default function Wilds() {
     if (wilds !== null && wilds !== undefined) {
         wild_element = 
         <div>
-            <GraphicContainer textToShow="wilds" iconToShow="egg">
+            <GraphicContainer textToShow="Wild Encounters" iconToShow="wild">
                 <GraphicMons monsToShow={wilds}/>
             </GraphicContainer>
         </div>;

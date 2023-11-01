@@ -21,6 +21,11 @@ export default function GraphicMon(props) {
                     <div className="graphic-mon-shadow"></div> :
                     <div></div>
                 }
+                {
+                    Boolean(monToShow.canBeShiny) ? 
+                    <div className="graphic-mon-shiny"></div> :
+                    <div></div>
+                }
             </div>
             <div className="graphic-mon-text"><p>{monToShow.name}</p></div>           
         </div>;

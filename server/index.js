@@ -40,6 +40,7 @@ app.listen(PORT, () => {
 });
 
 async function scrape_data() {
+  cacheImage("Pikachu");
   scrape_events();
   scrape_raids();
   scrape_eggs();
