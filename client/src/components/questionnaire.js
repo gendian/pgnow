@@ -1,6 +1,7 @@
 import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
-import GraphicMon from "./atomic/graphicMon";
+import SelectMon from "./atomic/selectMon";
+import NextView from "./atomic/nextView";
 
 export default function Questionnaire() {
 
@@ -13,9 +14,13 @@ export default function Questionnaire() {
     // page 7: Researches
     
     var questionnaire_element = 
-        <GraphicContainer textToShow="Questionnaire" iconToShow="upcoming">
-            <GraphicMon interactive="true"></GraphicMon>
-        </GraphicContainer>;
+        <div className="questionnaire">
+            <h2>Questionnaire</h2>
+            <GraphicContainer textToShow="Wild Encounters" iconToShow="upcoming">
+                <SelectMon></SelectMon>
+            </GraphicContainer>
+            <NextView></NextView>
+        </div>;
 
     return questionnaire_element;
 }

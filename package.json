@@ -7,8 +7,9 @@
     "start": "node server/index.js && cd client && npm start",
     "build": "cd client && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "frontend": "concurrently --kill-others \"node server/index.js\" \"cd client && npm start\"",
-    "backend": "concurrently --kill-others \"npx supervisor ./server/index.js\" \"cd client && npm start\""
+    "dev": "concurrently --kill-others \"npm start ./server/index.js\" \"cd client && npm start\"",
+    "frontend": "concurrently --kill-others \"cd client && npm start\"",
+    "backend": "concurrently --kill-others \"npx supervisor ./server/index.js\""
   },
   "keywords": [],
   "author": "",
