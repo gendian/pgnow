@@ -1,4 +1,6 @@
 import React from "react";
+import GraphicContainer from "./atomic/graphicContainer";
+import GraphicMon from "./atomic/graphicMon";
 
 export default function Questionnaire() {
 
@@ -11,9 +13,9 @@ export default function Questionnaire() {
     // page 7: Researches
     
     var questionnaire_element = 
-        <div>
-            hello world
-        </div>;
+        <GraphicContainer textToShow="Questionnaire" iconToShow="upcoming">
+            <GraphicMon interactive="true"></GraphicMon>
+        </GraphicContainer>;
 
     return questionnaire_element;
 }

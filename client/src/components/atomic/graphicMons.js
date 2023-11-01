@@ -5,10 +5,14 @@ export default function GraphicMons(props) {
     const monsToShow = props.monsToShow ? props.monsToShow : [];
     const showContainer = props.showContainer ? props.showContainer : false;
     const containerTitle = props.containerTitle ? props.containerTitle : "needs a containerTitle prop";
+    const interactive = props.interactive ? props.interactive : false;
     var graphicMons = [];
 
     function graphicMonList(monToShow) {
         var graphic = <GraphicMon monToShow={monToShow}/>;
+        if (interactive) {
+            graphic = <GraphicMon monToShow={monToShow} interactive="true"/>;
+        }
         graphicMons.push(graphic);
     }
 

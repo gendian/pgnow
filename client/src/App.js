@@ -22,7 +22,14 @@ import "./App.css";
 
 function App() {
   document.title = "GO Now";
-  var tweetid = 1717269815780335665;
+  
+  global.preferences = {
+    "monsToChase": [
+      "pikachu"
+    ]
+  }
+  
+
   return (
     <div className="App">
       {/*
@@ -31,15 +38,14 @@ function App() {
       </header>
       */}
       <div className="App-body">
-        <Questionnaire></Questionnaire>
         <Tabs forceRenderTabPanel={true}>
           <TabList>
             <Tab>Events</Tab>
             <Tab>Upcoming</Tab>
-            <Tab>Raids</Tab>
-            <Tab>Sh.Raids</Tab>
+            <Tab>Wild Encounters</Tab>
             <Tab>Eggs</Tab>
-            <Tab>Wilds</Tab>
+            <Tab>Raids</Tab>
+            <Tab>Shadow Raids</Tab>
             <Tab>Leaders</Tab>          
             <Tab>Researches</Tab>
             <Tab>Tier List</Tab>
@@ -56,6 +62,15 @@ function App() {
               <SourceLink textToShow="Credit to LeekDuck for this info" linkToShow="https://leekduck.com/events/"/>
             </TabPanel>
             <TabPanel>
+              <ViewDescription textToShow="Pokemon that you can find in the wild."/>
+              <Wilds/>
+            </TabPanel>
+            <TabPanel>
+              <ViewDescription textToShow="Pokemon that can hatch from eggs."/>
+              <Eggs/>
+              <SourceLink textToShow="Credit to LeekDuck for this info." linkToShow="https://leekduck.com/eggs/"/>
+            </TabPanel>
+            <TabPanel>
               <ViewDescription textToShow="Current raid bosses."/>
               <Raids/>
               <SourceLink textToShow="Credit to Pokemon Go Fandom for this info." linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
@@ -64,15 +79,6 @@ function App() {
               <ViewDescription textToShow="Current shadow raid bosses."/>
               <ShadowRaids/>
               <SourceLink textToShow="Credit to Pokemon Go Fandom for this info." linkToShow="https://pokemongo.fandom.com/wiki/List_of_current_Raid_Bosses"/>
-            </TabPanel>
-            <TabPanel>
-              <ViewDescription textToShow="Pokemon that can hatch from eggs."/>
-              <Eggs/>
-              <SourceLink textToShow="Credit to LeekDuck for this info." linkToShow="https://leekduck.com/eggs/"/>
-            </TabPanel>
-            <TabPanel>
-              <ViewDescription textToShow="Pokemon that you can find in the wild."/>
-              <Wilds/>
             </TabPanel>
             <TabPanel>
               <ViewDescription textToShow="Rocket Go Leaders and their team line ups."/>

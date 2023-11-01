@@ -1,14 +1,14 @@
 const { generateOptions } = require('./utils');
 const https = require('https');
 const constants=require('./constants');
-const { get_events } = require('./content/events');
-const { get_raids, get_shadows } = require('./content/raids');
-const { get_eggs } = require('./content/eggs');
-const { get_wilds } = require('./content/wilds');
-const { get_researches } = require('./content/researches');
-const { get_leaders } = require('./content/leaders');
-const { get_tierList } = require('./content/tierList');
-const { get_tweets } = require('./content/tweets');
+const { get_events } = require('./api/events');
+const { get_raids, get_shadows } = require('./api/raids');
+const { get_eggs } = require('./api/eggs');
+const { get_wilds } = require('./api/wilds');
+const { get_researches } = require('./api/researches');
+const { get_leaders } = require('./api/leaders');
+const { get_tierList } = require('./api/tierList');
+const { get_tweets } = require('./api/tweets');
 const { load_image, load_image_list } = require('./utils');
 
 const getUser= async function (req, res) {

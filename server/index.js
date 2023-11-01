@@ -4,13 +4,14 @@ const express = require('express');
 const cors = require('cors');
 const middlewares = require('./middlewares');
 const routes = require('./routes');
-const { scrape_events } = require('./content/events');
-const { scrape_raids } = require('./content/raids');
-const { scrape_eggs } = require('./content/eggs');
-const { scrape_researches } = require('./content/researches');
-const { scrape_leaders } = require('./content/leaders');
-const { scrape_tierList } = require('./content/tierList');
-const { scrape_wilds } = require('./content/wilds');
+const { scrape_events } = require('./api/events');
+const { scrape_raids } = require('./api/raids');
+const { scrape_eggs } = require('./api/eggs');
+const { scrape_researches } = require('./api/researches');
+const { scrape_leaders } = require('./api/leaders');
+const { scrape_tierList } = require('./api/tierList');
+const { scrape_wilds } = require('./api/wilds');
+const { parse_csv } = require('./utils');
 const cron = require("node-cron");
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -38,7 +39,7 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-function scrape_data() {
+async function scrape_data() {
   scrape_events();
   scrape_raids();
   scrape_eggs();

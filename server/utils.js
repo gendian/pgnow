@@ -1,5 +1,10 @@
 const constants=require('./constants');
 const https = require('https');
+const fs = require("fs");
+const { parse } = require("csv-parse");
+// Note, the `stream/promises` module is only available
+// starting with Node.js version 16
+const { finished } = require('stream/promises');
 
 const generateOptions=(_path)=>{
     return options = {
@@ -149,4 +154,30 @@ function load_image_list() {
     return imageList;
 }
 
-module.exports = { generateOptions, parseGitResponse, cacheImage, load_image, load_image_list }
+async function parse_csv(csvUrl)
+{
+
+    // Read and process the CSV file
+    const processFile = async () => {
+        const records = [];
+        const parser = fs
+        .createReadStream(csvUrl)
+        .pipe(parse({
+            delimiter: ",", 
+            columns: true
+        }));
+        parser.on('readable', function(){
+        let record; while ((record = parser.read()) !== null) {
+        // Work with each record
+            records.push(record);
+        }
+        });
+        await finished(parser);
+        return records;
+    };
+
+    var result = await processFile(csvUrl);
+    return result;
+}
+
+module.exports = { generateOptions, parseGitResponse, cacheImage, load_image, load_image_list, parse_csv }
