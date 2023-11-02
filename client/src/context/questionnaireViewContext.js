@@ -10,7 +10,6 @@ const QViewContextProvider = (props) => {
             qView.page = qView.page + 1;
         }
         const newQView = {...qView};
-        console.log(newQView.page);
         setQView(newQView);
     }
   
@@ -19,7 +18,6 @@ const QViewContextProvider = (props) => {
             qView.page = qView.page - 1;
         }
         const newQView = {...qView};
-        console.log(newQView.page);
         setQView(newQView);
     }
   

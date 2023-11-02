@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import { GoalsContext } from "../../context/goalsContext";
 
 export default function GraphicMon(props) {
-    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};
     const { isGoal } = React.useContext(GoalsContext);
+    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};
 
     // REAL API
     const [monImg, setMonImg] = React.useState(null);

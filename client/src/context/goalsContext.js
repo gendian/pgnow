@@ -1,23 +1,36 @@
-import React, { createContext, useState } from 'react'
+import { useCookies } from "react-cookie";
+import React, { createContext, useState, useEffect } from 'react'
 export const GoalsContext = createContext()
 
 const GoalsContextProvider = (props) => {
-    const [goals, setGoals] = useState(["Marill"]);
+
+    const [cookies, setCookie] = useCookies(["goals"]);
+    const [goals, setGoals] = useState([]);
   
+
+    useEffect(() => {
+        if (goals.length === 0) {
+            console.log("set goals from cookies");
+            setGoals(cookies.goals);
+        }
+    });
+
     function toggleGoal(monName) {
         if (goals.includes(monName)) {
             var indexToRemove = goals.indexOf(monName);
-            goals.splice(indexToRemove, indexToRemove);
+            goals.splice(indexToRemove, 1);
         } else {
             goals.push(monName);
         }
         const newGoals = [...goals];
         setGoals(newGoals);
+        setCookie("goals", newGoals, { path: "/" });
+        console.log(newGoals);
     }
   
     function isGoal(monName) {  
         var isGoal = false;
-        if (!goals.includes(monName)) {
+        if (goals != undefined && goals.includes(monName)) {
             isGoal = true;
         }
         return isGoal;
@@ -28,7 +41,8 @@ const GoalsContextProvider = (props) => {
             value={{
                 goals,
                 toggleGoal,
-                isGoal
+                isGoal,
+                setGoals
              }}>
                {props.children}
          </GoalsContext.Provider>
