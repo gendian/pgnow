@@ -200,9 +200,6 @@ ul {
 .graphic-mon-outer > * {
   margin: auto;
 }
-.graphic-mon-outer.greyed-out img{
-  background-color: red;
-}
 .graphic-mon-background {  
   background: url("./assets/images/pokeball-background.png") no-repeat center center;
   width: 50px;
@@ -303,6 +300,19 @@ ul {
 .view-description {
   margin-top: 32px;
   margin-left: 10px;
+}
+
+.mon-selector.greyed-out .graphic-mon-outer.greyed-out {
+  opacity: 0.5;
+  display: block;
+}
+
+.graphic-mon-outer.greyed-out {
+  display: none;
+}
+
+.questionnaire.hidden {
+  display:none;
 }
 
 @keyframes App-logo-spin {

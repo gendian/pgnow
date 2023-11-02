@@ -2,7 +2,8 @@ import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
 import GraphicMons from "./atomic/graphicMons";
 
-export default function Eggs() {
+export default function Eggs(props) {
+    const interactive = props.interactive ? props.interactive : false;
 
     // REAL API
     const [eggs, setEggs] = React.useState(null);
@@ -37,19 +38,19 @@ export default function Eggs() {
         egg_element = 
         <div>
             <GraphicContainer textToShow="2km" iconToShow="egg">
-                <GraphicMons monsToShow={twok}/>
+                <GraphicMons monsToShow={twok} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="5km" iconToShow="egg">
-                <GraphicMons monsToShow={fivek}/>
+                <GraphicMons monsToShow={fivek} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="7km" iconToShow="egg">
-                <GraphicMons monsToShow={sevenk}/>
+                <GraphicMons monsToShow={sevenk} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="10km" iconToShow="egg">
-                <GraphicMons monsToShow={tenk}/>
+                <GraphicMons monsToShow={tenk} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="12km" iconToShow="egg">
-                <GraphicMons monsToShow={twelvek}/>
+                <GraphicMons monsToShow={twelvek} interactive={interactive}/>
             </GraphicContainer>
         </div>;
     }

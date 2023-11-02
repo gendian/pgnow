@@ -2,8 +2,8 @@ import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
 import GraphicMons from "./atomic/graphicMons";
 
-export default function Raids() {
-
+export default function Raids(props) {
+    const interactive = props.interactive ? props.interactive : false;
     // REAL API
     const [raids, setRaids] = React.useState(null);
     React.useEffect(() => {
@@ -34,16 +34,16 @@ export default function Raids() {
         raid_element = 
             <div>
                 <GraphicContainer textToShow="1* Raids" iconToShow="raid">
-                    <GraphicMons monsToShow={onestar}/>
+                    <GraphicMons monsToShow={onestar} interactive={interactive}/>
                 </GraphicContainer>
                 <GraphicContainer textToShow="3* Raids" iconToShow="raid">
-                    <GraphicMons monsToShow={threestar}/>
+                    <GraphicMons monsToShow={threestar} interactive={interactive}/>
                 </GraphicContainer>
                 <GraphicContainer textToShow="5* Raids" iconToShow="raid">
-                    <GraphicMons monsToShow={fivestar}/>
+                    <GraphicMons monsToShow={fivestar} interactive={interactive}/>
                 </GraphicContainer>
                 <GraphicContainer textToShow="Mega Raids" iconToShow="raid">
-                    <GraphicMons monsToShow={mega}/>
+                    <GraphicMons monsToShow={mega} interactive={interactive}/>
                 </GraphicContainer>
             </div>;
     }

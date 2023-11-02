@@ -2,8 +2,8 @@ import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
 import GraphicMons from "./atomic/graphicMons";
 
-export default function Wilds() {
-
+export default function Wilds(props) {
+    const interactive = props.interactive ? props.interactive : false;
     // REAL API
     const [wilds, setWilds] = React.useState(null);
     React.useEffect(() => {
@@ -17,7 +17,7 @@ export default function Wilds() {
         wild_element = 
         <div>
             <GraphicContainer textToShow="Wild Encounters" iconToShow="wild">
-                <GraphicMons monsToShow={wilds}/>
+                <GraphicMons monsToShow={wilds} interactive={interactive}/>
             </GraphicContainer>
         </div>;
     }

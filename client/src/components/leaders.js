@@ -2,8 +2,8 @@ import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
 import GraphicMons from "./atomic/graphicMons";
 
-export default function Leaders() {
-
+export default function Leaders(props) {
+    const interactive = props.interactive ? props.interactive : false;
     // REAL API
     const [leaders, setLeaders] = React.useState(null);
     React.useEffect(() => {
@@ -21,19 +21,19 @@ export default function Leaders() {
         leader_element = 
         <div>
             <GraphicContainer textToShow="Arlo" iconToShow="leader">
-                <GraphicMons monsToShow={arlo.firstMons} showContainer="true" containerTitle="1st Pokemon"/>
-                <GraphicMons monsToShow={arlo.secondMons} showContainer="true" containerTitle="2nd Pokemon"/>
-                <GraphicMons monsToShow={arlo.thirdMons} showContainer="true" containerTitle="3rd Pokemon"/>
+                <GraphicMons monsToShow={arlo.firstMons} showContainer="true" containerTitle="1st Pokemon" interactive={interactive}/>
+                <GraphicMons monsToShow={arlo.secondMons} showContainer="true" containerTitle="2nd Pokemon" interactive={interactive}/>
+                <GraphicMons monsToShow={arlo.thirdMons} showContainer="true" containerTitle="3rd Pokemon" interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Cliff" iconToShow="leader">
-                <GraphicMons monsToShow={cliff.firstMons} showContainer="true" containerTitle="1st Pokemon"/>
-                <GraphicMons monsToShow={cliff.secondMons} showContainer="true" containerTitle="2nd Pokemon"/>
-                <GraphicMons monsToShow={cliff.thirdMons} showContainer="true" containerTitle="3rd Pokemon"/>
+                <GraphicMons monsToShow={cliff.firstMons} showContainer="true" containerTitle="1st Pokemon" interactive={interactive}/>
+                <GraphicMons monsToShow={cliff.secondMons} showContainer="true" containerTitle="2nd Pokemon" interactive={interactive}/>
+                <GraphicMons monsToShow={cliff.thirdMons} showContainer="true" containerTitle="3rd Pokemon" interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Sierra" iconToShow="leader">
-                <GraphicMons monsToShow={sierra.firstMons} showContainer="true" containerTitle="1st Pokemon"/>
-                <GraphicMons monsToShow={sierra.secondMons} showContainer="true" containerTitle="2nd Pokemon"/>
-                <GraphicMons monsToShow={sierra.thirdMons} showContainer="true" containerTitle="3rd Pokemon"/>
+                <GraphicMons monsToShow={sierra.firstMons} showContainer="true" containerTitle="1st Pokemon" interactive={interactive}/>
+                <GraphicMons monsToShow={sierra.secondMons} showContainer="true" containerTitle="2nd Pokemon" interactive={interactive}/>
+                <GraphicMons monsToShow={sierra.thirdMons} showContainer="true" containerTitle="3rd Pokemon" interactive={interactive}/>
             </GraphicContainer>
         </div>;
     }

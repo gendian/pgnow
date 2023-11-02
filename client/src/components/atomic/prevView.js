@@ -1,11 +1,11 @@
 import React from "react";
 import { QViewContext } from "../../context/questionnaireViewContext";
 
-export default function NextView() {
-    const { nextView } = React.useContext(QViewContext);
+export default function PrevView() {
+    const { prevView } = React.useContext(QViewContext);
     var element = 
     <div>
-        <button onClick={nextView} type="button">Next</button>
+        <button onClick={prevView} type="button">Previous</button>
     </div>
 
     return element;

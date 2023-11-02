@@ -1,5 +1,6 @@
 import React from "react";
 import GraphicMon from "./graphicMon";
+import SelectMon from "./selectMon";
 
 export default function GraphicMons(props) {
     const monsToShow = props.monsToShow ? props.monsToShow : [];
@@ -11,7 +12,7 @@ export default function GraphicMons(props) {
     function graphicMonList(monToShow) {
         var graphic = <GraphicMon monToShow={monToShow}/>;
         if (interactive) {
-            graphic = <GraphicMon monToShow={monToShow} interactive="true"/>;
+            graphic = <SelectMon monToSelect={monToShow}/>;
         }
         graphicMons.push(graphic);
     }

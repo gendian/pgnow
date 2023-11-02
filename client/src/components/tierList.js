@@ -2,8 +2,8 @@ import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
 import GraphicMons from "./atomic/graphicMons";
 
-export default function TierList() {
-
+export default function TierList(props) {
+    const interactive = props.interactive ? props.interactive : false;
     // REAL API
     const [tierList, setTierList] = React.useState(null);
     React.useEffect(() => {
@@ -17,13 +17,13 @@ export default function TierList() {
     if (tierList !== null && tierList !== undefined) {
         tier_element = <div>
             <GraphicContainer textToShow="Mega" iconToShow="mega">
-                <GraphicMons monsToShow={tierList.mega}/>
+                <GraphicMons monsToShow={tierList.mega} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Shadow" iconToShow="shraid">
-                <GraphicMons monsToShow={tierList.shadow}/>
+                <GraphicMons monsToShow={tierList.shadow} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Regular" iconToShow="event">
-                <GraphicMons monsToShow={tierList.regular}/>
+                <GraphicMons monsToShow={tierList.regular} interactive={interactive}/>
             </GraphicContainer>
         </div>;
     }

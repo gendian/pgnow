@@ -1,7 +1,9 @@
 import React from "react";
+import { GoalsContext } from "../../context/goalsContext";
 
 export default function GraphicMon(props) {
-    const monToShow = props.monToShow ? props.monToShow : {"name": "Pikachu"};
+    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};
+    const { isGoal } = React.useContext(GoalsContext);
 
     // REAL API
     const [monImg, setMonImg] = React.useState(null);
@@ -12,7 +14,7 @@ export default function GraphicMon(props) {
     }, []);
     
     var graphicContainer = 
-        <div className="graphic-mon-outer">
+        <div className={isGoal(monToShow.name) ? "graphic-mon-outer" : "graphic-mon-outer greyed-out"}>
             <div className="graphic-mon-background"></div>
             <div className="graphic-mon-image">
                 <img src={monImg} alt={monToShow.name}></img>
@@ -28,6 +30,6 @@ export default function GraphicMon(props) {
                 }
             </div>
             <div className="graphic-mon-text"><p>{monToShow.name}</p></div>           
-        </div>;
+        </div>
     return graphicContainer;
 }

@@ -2,8 +2,8 @@ import React from "react";
 import GraphicContainer from "./atomic/graphicContainer";
 import GraphicMons from "./atomic/graphicMons";
 
-export default function ShadowRaids() {
-
+export default function ShadowRaids(props) {
+    const interactive = props.interactive ? props.interactive : false;
     // REAL API
     const [shadowRaids, setShadowRaids] = React.useState(null);
     React.useEffect(() => {
@@ -31,13 +31,13 @@ export default function ShadowRaids() {
         raid_element = 
         <div>
             <GraphicContainer textToShow="Shadow 1* Raids" iconToShow="shraid">
-                <GraphicMons monsToShow={onestar}/>
+                <GraphicMons monsToShow={onestar} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Shadow 3* Raids" iconToShow="shraid">
-                <GraphicMons monsToShow={threestar}/>
+                <GraphicMons monsToShow={threestar} interactive={interactive}/>
             </GraphicContainer>
             <GraphicContainer textToShow="Shadow Legendary Raids" iconToShow="shraid">
-                <GraphicMons monsToShow={legendary}/>
+                <GraphicMons monsToShow={legendary} interactive={interactive}/>
                 <p>*Only available on Saturdays and Sundays</p>
             </GraphicContainer>
         </div>;
