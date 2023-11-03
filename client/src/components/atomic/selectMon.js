@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { useCookies } from "react-cookie";
 import GraphicMon from "./graphicMon";
 import { GoalsContext } from "../../context/goalsContext";
+const jsonminify = require("jsonminify");
 
 export default function SelectMon(props) {
     const [cookies, setCookie] = useCookies(["goals"]); 
@@ -12,7 +13,8 @@ export default function SelectMon(props) {
         <div 
         onClick={() => {            
             toggleGoal(monToSelect.name);
-            var goalsString = JSON.stringify(goals);
+            const goalsString = jsonminify(JSON.stringify(goals));
+            console.log(goalsString);
             setCookie("goals", goalsString, { path: "/" });
         }}
         className={

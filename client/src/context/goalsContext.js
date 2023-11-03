@@ -5,9 +5,8 @@ export const GoalsContext = createContext()
 
 const GoalsContextProvider = (props) => {
 
-    const [cookies] = useCookies(["goals"]);
+    const [cookies, setCookie, removeCookie] = useCookies(["goals"]);
     const [goals, setGoals] = useState([]);
-    const [goalsDefault, setGoalsDefault] = useState([]);
     const [images, setImages] = useState({});
 
     useEffect(() => {
@@ -22,8 +21,7 @@ const GoalsContextProvider = (props) => {
         if (cookies !== undefined && cookies.goals !== undefined) {
             setGoals(cookies.goals);
         } else {
-            setGoals(data.names);
-            //setGoalsDefault(data.names);
+            setGoals(data.goals);
         }
 
         var imageMap = {};
@@ -57,9 +55,9 @@ const GoalsContextProvider = (props) => {
         setGoals(newGoals);
     }
 
-    function resetGoals(monName) {
-        console.log("shouldn't be called");
-        //setGoals(goalsDefault);
+    function resetGoals() {
+        removeCookie("goals");
+        window.location.reload(false);
     }
   
     function isGoal(monName) {  

@@ -1,5 +1,5 @@
 const https = require('https');
-const { parse_csv, cacheImage } = require('../utils');
+const { parse_csv, cacheImage, setGoal } = require('../utils');
 
 async function scrape_wilds()
 {    
@@ -8,6 +8,7 @@ async function scrape_wilds()
     global.wilds = content;
     content.forEach(function(item) {
         cacheImage(item.name);
+        setGoal(item.name);
     });
 }
 

@@ -15,7 +15,7 @@ export default function ChangeView(props) {
             {showNext ? <Button onClick={nextView} variant="primary">Next</Button> : <div></div>}
         </div>
         <div>
-            {/*<Button onClick={resetGoals} variant="secondary">Reset</Button>*/}
+            {<Button onClick={resetGoals} variant="secondary">Reset</Button>}
         </div>
     </div>
 

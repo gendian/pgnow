@@ -1,5 +1,5 @@
 const https = require('https');
-const { generateOptions, parseGitResponse, cacheImage } = require('../utils');
+const { generateOptions, parseGitResponse, cacheImage, setGoal } = require('../utils');
 
 function scrape_eggs()
 {    
@@ -20,6 +20,7 @@ function scrape_eggs()
             global.eggs = content;
             content.forEach(function(item) {
                 cacheImage(item.name);
+                setGoal(item.name);
             });
         });
     }).on('error', (e) => {

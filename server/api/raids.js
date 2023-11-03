@@ -1,6 +1,6 @@
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
-const { cacheImage } = require('../utils');
+const { cacheImage, setGoal } = require('../utils');
 
 function scrape_raids()
 {
@@ -48,6 +48,7 @@ function scrape_raids()
                         raids.push(pokemon);
                     }
                     cacheImage(pokemon.name);
+                    setGoal(pokemon.name);
                 }
             })
             console.log("Scraping raids");

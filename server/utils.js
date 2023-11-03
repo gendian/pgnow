@@ -146,10 +146,16 @@ function load_image(name) {
     return image;
 }
 
+function setGoal(name) {
+    var formattedName  = formatName(name);
+    global.goals.push(formattedName);
+}
+
 function load_image_list() {
     var imageList = {
         names: [],
-        images: []
+        images: [],
+        goals: global.goals
     }
     for (const [key, value] of global.monMap) {  
         imageList.names.push(key);
@@ -184,4 +190,4 @@ async function parse_csv(csvUrl)
     return result;
 }
 
-module.exports = { generateOptions, parseGitResponse, cacheImage, load_image, load_image_list, parse_csv }
+module.exports = { generateOptions, parseGitResponse, cacheImage, load_image, load_image_list, parse_csv, setGoal }
