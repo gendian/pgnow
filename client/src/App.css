@@ -249,6 +249,27 @@ ul {
   width: 34px;
 }
 
+.btn {
+  padding-top: 15px;
+  margin: 15px;
+}
+.btn.btn-primary {
+  --bs-btn-color: var(--text);
+  --bs-btn-bg: var(--cont-title-grad-left);
+  --bs-btn-border-color: var(--cont-title-grad-left);
+  --bs-btn-hover-color: var(--text);
+  --bs-btn-hover-bg: var(--cont-title-grad-left);
+  --bs-btn-hover-border-color: var(--cont-title-grad-left);
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-active-color: var(--text);
+  --bs-btn-active-bg: var(--cont-title-grad-left);
+  --bs-btn-active-border-color: var(--cont-title-grad-left);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--text);
+  --bs-btn-disabled-bg: var(--cont-title-grad-left);
+  --bs-btn-disabled-border-color: var(--cont-title-grad-left);
+}
+
 /* --- Tabs --- */
 .react-tabs {
   margin-top:10px;

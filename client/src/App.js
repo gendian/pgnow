@@ -16,9 +16,10 @@ import SourceLink from "./components/atomic/sourceLink";
 import Tweets from "./components/tweets";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { CookiesProvider, useCookies } from "react-cookie";
+import { CookiesProvider } from "react-cookie";
 
 //import Loading from "./components/loading";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import GoalsContextProvider from "./context/goalsContext";
 
@@ -47,7 +48,7 @@ function App() {
                 <Tab>Researches</Tab>
                 <Tab>Tier List</Tab>
                 <Tab>Tweets</Tab>
-                <Tab>Hunting</Tab>
+                <Tab>Exclusions</Tab>
               </TabList>
                 <TabPanel>
                   <WelcomeBanner/>
@@ -94,9 +95,11 @@ function App() {
                   <SourceLink textToShow="Credit to GamePress for this info." linkToShow="https://gamepress.gg/pokemongo/attackers-tier-list"/>
                 </TabPanel>          
                 <TabPanel>
+                  <ViewDescription textToShow="Tweets from Pokemon GO's official account"/>
                   <Tweets/>
                 </TabPanel> 
                 <TabPanel>
+                  <ViewDescription textToShow="Tap the Pokemon you don't want to chase below and then you won't see them in the other tabs."/>
                   <Questionnaire/>
                 </TabPanel>
             </Tabs>

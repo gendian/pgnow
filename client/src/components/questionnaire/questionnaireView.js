@@ -1,6 +1,5 @@
 import React from "react";
-import NextView from "../atomic/nextView";
-import PrevView from "../atomic/prevView";
+import ChangeView from "../atomic/changeView";
 import { QViewContext } from "../../context/questionnaireViewContext";
 import Wilds from "../wilds";
 import Eggs from "../eggs";
@@ -25,34 +24,36 @@ export default function QuestionnaireView() {
             // wild encounters
             qview_element = 
             <div>
+                <ChangeView showNext={true}></ChangeView>
                 <Wilds interactive="true"></Wilds>
-                <NextView></NextView>
+                <ChangeView showNext={true}></ChangeView>
             </div>;
             break;
         case 1:
             // eggs
             qview_element = 
             <div>
+                <ChangeView showNext={true} showPrev={true}></ChangeView>
                 <Eggs interactive="true"></Eggs>
-                <NextView></NextView>
-                <PrevView></PrevView>
+                <ChangeView showNext={true} showPrev={true}></ChangeView>
             </div>;
             break;
         case 2:
             // raids
             qview_element = 
             <div>
+                <ChangeView showNext={true} showPrev={true}></ChangeView>
                 <Raids interactive="true"></Raids>
-                <NextView></NextView>
-                <PrevView></PrevView>
+                <ChangeView showNext={true} showPrev={true}></ChangeView>
             </div>;
             break;
         case 3:
             // shadow raids
             qview_element = 
             <div>
+                <ChangeView showPrev={true}></ChangeView>
                 <ShadowRaids interactive="true"></ShadowRaids>
-                <PrevView></PrevView>
+                <ChangeView showPrev={true}></ChangeView>
             </div>;
             break;
         default:
@@ -61,7 +62,6 @@ export default function QuestionnaireView() {
 
     var questionnaire_element = 
         <div className={qView.visible ? "questionnaire" : "questionnaire hidden"}>
-            <h2>Hunting</h2>
             {qview_element}
         </div>;
 
