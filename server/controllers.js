@@ -119,4 +119,5 @@ const loadImageList= async function (req, res) {
     res.json(load_image_list());
 }
 
-module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getWilds, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, loadImage, loadImageList, getTierList, getTweets }
+module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getWilds, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, 
+        loadImage, loadImageList, getTierList, getTweets }

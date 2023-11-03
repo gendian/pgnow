@@ -1,6 +1,7 @@
 import React from "react";
 import Countdown from 'react-countdown';
 import GraphicContainer from "./atomic/graphicContainer";
+import { v4 as uuid } from "uuid";
 
 export default function FutureEvents() {
 
@@ -37,13 +38,14 @@ export default function FutureEvents() {
             var distance = countDownDate - currentTime;
 
             // Show events that start after today
-            if (start >= new Date().getTime()) {                
+            if (start >= new Date().getTime()) {        
+                const unique_id = uuid();
                 const listItem = 
-                    <li key={"future-"+count}>
+                    <li key={"future-"+unique_id}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                             <div><p>{event.name.replace("Ã©", "é")}</p></div>
                             <div>{distance < weekInMillis ? 
-                                <p>
+                                <div>
                                     <Countdown date={Date.now() + distance}renderer={props => 
                                         <div>
                                             {distance > dayInMillis ? props.days + (props.days===1?" day ":" days "): ""}
@@ -53,7 +55,7 @@ export default function FutureEvents() {
                                         </div>
                                     }
                                     />
-                                </p> :
+                                </div> :
                                 <p>{new Date(event.start).toLocaleDateString(navigator.languages[0], {year:"2-digit",month:"2-digit", day:"2-digit"})}</p>
                                 }
                             </div>

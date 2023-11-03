@@ -3,7 +3,7 @@ import { GoalsContext } from "../../context/goalsContext";
 
 export default function GraphicMon(props) {
     const { isGoal } = React.useContext(GoalsContext);
-    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};
+    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};// New unique id
 
     // REAL API
     const [monImg, setMonImg] = React.useState(null);

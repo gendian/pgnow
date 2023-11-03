@@ -24,6 +24,7 @@ function parseGitResponse(data) {
     return content;
 }
 
+// ALSO ADD TO THE CLIENT!!
 function formatName(name) {
     let formattedName = name;
     // format lowercase remove non-alphanumeric

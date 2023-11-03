@@ -1,6 +1,7 @@
 import React from "react";
 import GraphicMon from "./graphicMon";
 import SelectMon from "./selectMon";
+import { v4 as uuid } from "uuid";
 
 export default function GraphicMons(props) {
     const monsToShow = props.monsToShow ? props.monsToShow : [];
@@ -10,9 +11,10 @@ export default function GraphicMons(props) {
     var graphicMons = [];
 
     function graphicMonList(monToShow) {
-        var graphic = <GraphicMon monToShow={monToShow}/>;
+        const unique_id = uuid();
+        var graphic = <GraphicMon key={"mon-"+unique_id} monToShow={monToShow}/>;
         if (interactive) {
-            graphic = <SelectMon monToSelect={monToShow}/>;
+            graphic = <SelectMon key={"select-"+unique_id} monToSelect={monToShow}/>;
         }
         graphicMons.push(graphic);
     }

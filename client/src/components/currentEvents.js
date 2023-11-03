@@ -1,6 +1,7 @@
 import React from "react";
 import Countdown from 'react-countdown';
 import GraphicContainer from "./atomic/graphicContainer";
+import { v4 as uuid } from "uuid";
 
 export default function CurrentEvents() {
 
@@ -32,8 +33,9 @@ export default function CurrentEvents() {
             // Show events that are current
             let end = new Date(Date.parse(event.end));
             if (start <= currentTime && end >= currentTime) {
+                const unique_id = uuid();
                 const listItem = 
-                    <li key={"event-"+count}>
+                    <li key={"event-"+unique_id}>
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                             <div>{event.name.replace("Ã©", "é")}</div>
                             <div className={distance < 172800000 ? "countdown-soon" : ""}>
@@ -62,8 +64,9 @@ export default function CurrentEvents() {
             var countDownDate = Date.parse(event.start);
             var distance = countDownDate - currentTime;
             if (distance < weekInMillis && start >= currentTime) {
+                const unique_id = uuid();
                 const listItem = 
-                <li key={"future-"+count}>
+                <li key={"current-"+unique_id}>
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gridGap: 20}}>
                         <div>{event.name.replace("Ã©", "é")}</div>
                         <div>
