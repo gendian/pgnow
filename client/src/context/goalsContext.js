@@ -6,6 +6,7 @@ const GoalsContextProvider = (props) => {
 
     const [cookies, setCookie] = useCookies(["goals"]);
     const [goals, setGoals] = useState([]);
+    const [images, setImages] = useState({});
 
     useEffect(() => {
         if (goals == undefined || goals.length === 0) {
@@ -14,13 +15,31 @@ const GoalsContextProvider = (props) => {
             } else {
                 fetch("/pgnow_api/loadImageList")
                 .then((res) => res.json())
-                .then((data) => handleNames(data.names));
+                .then((data) => handleImages(data));
             }
         }
     });
 
-    function handleNames(names) {
-        setGoals(names);
+    function handleImages(data) {
+        setGoals(data.names);
+
+        var imageMap = {};
+        var count = 0;
+        data.names.forEach(function(name) {
+            const imageLink = data.images[count];
+            imageMap[name] = imageLink
+            count++;
+        })
+        setImages(imageMap);
+    }
+
+    function getImage(monName) {        
+        var returnLink = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png";
+        const formattedName = formatName(monName);
+        if (images !== undefined) {
+            returnLink = images[formattedName];
+        }
+        return returnLink;
     }
 
     function toggleGoal(monName) {
@@ -33,6 +52,7 @@ const GoalsContextProvider = (props) => {
         }
         const newGoals = [...goals];
         setGoals(newGoals);
+        console.log("Set cookie");
         setCookie("goals", newGoals, { path: "/" });
     }
   
@@ -132,7 +152,9 @@ const GoalsContextProvider = (props) => {
                 goals,
                 toggleGoal,
                 isGoal,
-                setGoals
+                setGoals,
+                images,
+                getImage
              }}>
                {props.children}
          </GoalsContext.Provider>

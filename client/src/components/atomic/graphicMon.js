@@ -2,16 +2,10 @@ import React from 'react';
 import { GoalsContext } from "../../context/goalsContext";
 
 export default function GraphicMon(props) {
-    const { isGoal } = React.useContext(GoalsContext);
-    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};// New unique id
+    const { isGoal, getImage } = React.useContext(GoalsContext);
+    const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};
 
-    // REAL API
-    const [monImg, setMonImg] = React.useState(null);
-    React.useEffect(() => {
-        fetch("/pgnow_api/loadImage/"+monToShow.name)
-          .then((res) => res.json())
-          .then((data) => setMonImg(data));
-    }, []);
+    const monImg = getImage(monToShow.name);
     
     var graphicContainer = 
         <div className={isGoal(monToShow.name) ? "graphic-mon-outer" : "graphic-mon-outer greyed-out"}>
