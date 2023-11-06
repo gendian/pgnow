@@ -9,7 +9,8 @@ const { get_researches } = require('./api/researches');
 const { get_leaders } = require('./api/leaders');
 const { get_tierList } = require('./api/tierList');
 const { get_tweets } = require('./api/tweets');
-const { load_image, load_image_list } = require('./utils');
+const { get_exclusions, overwrite_exclusions } = require('./api/exclusions');
+const { get_pokemon, get_all_pokemon } = require('./utils');
 
 const getUser= async function (req, res) {
     const user = req.params.user;
@@ -111,13 +112,22 @@ const getPokeAPI= async function (req, res) {
     })
 }
 
-const loadImage= async function (req, res) {
-    res.json(load_image(req.params.name));
+const getPokemon= async function (req, res) {
+    res.json(get_pokemon());
 }
 
-const loadImageList= async function (req, res) {
-    res.json(load_image_list());
+const getAllPokemon= async function (req, res) {
+    res.json(get_all_pokemon());
+}
+
+const getExclusions= async function (req, res) {
+    res.json(get_exclusions());
+}
+
+const saveExclusions= async function (req, res) {
+    overwrite_exclusions(req.body);
+    res.send('Saved exclusions: ' + JSON.stringify(req.body));
 }
 
 module.exports = { getUser, getRepo, getCommit, getContent, getShadows, getEggs, getWilds, getEvents, getRaids, getResearches, getLeaders, getPokeAPI, 
-        loadImage, loadImageList, getTierList, getTweets }
+        getTierList, getTweets, getExclusions, saveExclusions, getPokemon, getAllPokemon }

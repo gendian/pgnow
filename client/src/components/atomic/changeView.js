@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import { QViewContext } from "../../context/questionnaireViewContext";
-import { GoalsContext } from "../../context/goalsContext";
+import { ExclusionsContext } from "../../context/exclusionsContext";
 
 export default function ChangeView(props) {
     const showPrev = props.showPrev ? props.showPrev : false;
     const showNext = props.showNext ? props.showNext : false;
-    const { resetGoals } = useContext(GoalsContext);
+    const { resetExclusions } = useContext(ExclusionsContext);
     const { nextView, prevView } = useContext(QViewContext);
     var element = 
     <div>
@@ -15,7 +15,7 @@ export default function ChangeView(props) {
             {showNext ? <Button onClick={nextView} variant="primary">Next</Button> : <div></div>}
         </div>
         <div>
-            {<Button onClick={resetGoals} variant="secondary">Reset</Button>}
+            {<Button onClick={resetExclusions} variant="secondary">Reset</Button>}
         </div>
     </div>
 

@@ -1,6 +1,6 @@
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
-const { cacheImage } = require('../utils');
+const { cachePokemon } = require('../utils');
 
 function scrape_tierList()
 {
@@ -59,9 +59,9 @@ function scrape_tierList()
                     regularCounter++;
                 }
 
-                cacheImage(pokemon.name);
+                cachePokemon(pokemon.name);
             })
-            console.log("Scraping tierList");
+            console.log("Scraping Tier List from gamepress");
 
             var tierList = {
                 mega: megaList,
@@ -69,6 +69,7 @@ function scrape_tierList()
                 regular: regularList
             }
             global.tierList = tierList;
+            console.log("SERVER READY");
         }).catch(_err =>
             {
                 console.log(_err);

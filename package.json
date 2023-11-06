@@ -21,6 +21,7 @@
     "express": "^4.18.2",
     "heroku": "^8.4.3",
     "jsdom": "21.1.1",
+    "lokijs": "^1.5.12",
     "moment": "latest",
     "node-cron": "^3.0.2",
     "node-schedule": "^2.1.1",

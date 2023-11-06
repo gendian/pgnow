@@ -1,6 +1,6 @@
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
-const { cacheImage, setGoal } = require('../utils');
+const { cachePokemon } = require('../utils');
 
 function scrape_raids()
 {
@@ -47,11 +47,10 @@ function scrape_raids()
                     } else {
                         raids.push(pokemon);
                     }
-                    cacheImage(pokemon.name);
-                    setGoal(pokemon.name);
+                    cachePokemon(pokemon.name);
                 }
             })
-            console.log("Scraping raids");
+            console.log("Scraping raids from fandom");
             global.shadows = shadows;
             global.raids = raids;
         }).catch(_err =>

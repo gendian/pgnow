@@ -15,26 +15,20 @@ import Questionnaire from "./components/questionnaire/questionnaire";
 import SourceLink from "./components/atomic/sourceLink";
 import Tweets from "./components/tweets";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import ExclusionsContextProvider from "./context/exclusionsContext";
+import MonsContextProvider from "./context/monsContext";
 import 'react-tabs/style/react-tabs.css';
-import { CookiesProvider } from "react-cookie";
 
-//import Loading from "./components/loading";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import GoalsContextProvider from "./context/goalsContext";
 
 function App() {
   document.title = "GO Now";
   
   return (
-    <CookiesProvider>
+    <MonsContextProvider>
       <div className="App">
-        {/*
-        <header className="App-header">
-          <Loading/>
-        </header>
-        */}
-        <GoalsContextProvider>
+        <ExclusionsContextProvider>
           <div className="App-body">
             <Tabs forceRenderTabPanel={true}>
               <TabList>
@@ -104,9 +98,9 @@ function App() {
                 </TabPanel>
             </Tabs>
           </div>
-        </GoalsContextProvider>
+        </ExclusionsContextProvider>
       </div>
-    </CookiesProvider>
+    </MonsContextProvider>
   );
 }
 

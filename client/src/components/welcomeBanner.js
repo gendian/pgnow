@@ -1,5 +1,4 @@
 import React from "react";
-import { BsEmojiLaughing } from 'react-icons/bs';
 
 export default function WelcomeBanner() {
 

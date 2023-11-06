@@ -2,7 +2,7 @@ const fs = require('fs');
 const jsd = require('jsdom');
 const { JSDOM } = jsd;
 const https = require('https');
-const { cacheImage } = require('../utils');
+const { cachePokemon } = require('../utils');
 
 function scrape_leaders()
 {
@@ -54,7 +54,7 @@ function scrape_leaders()
                             default:
                               break;
                         }                        
-                        cacheImage(monObj.name);
+                        cachePokemon(monObj.name);
                     });
                     positionCounter++;
                 })
@@ -63,13 +63,13 @@ function scrape_leaders()
                 leaderCounter++;
             });
 
-            console.log("Scraping leaders");
+            console.log("Scraping leaders from fandom");
             global.leaders = leaders;
         }).catch(_err =>
-            {
-                console.log(_err);
-            });
-        })
+        {
+            console.log(_err);
+        });
+    })
 }
 
 function get_leaders() {

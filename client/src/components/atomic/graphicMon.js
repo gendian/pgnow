@@ -1,14 +1,16 @@
-import React from 'react';
-import { GoalsContext } from "../../context/goalsContext";
+import { useContext } from 'react';
+import { ExclusionsContext } from "../../context/exclusionsContext";
+import { MonsContext } from "../../context/monsContext";
 
 export default function GraphicMon(props) {
-    const { isGoal, getImage } = React.useContext(GoalsContext);
+    const { isExclusion } = useContext(ExclusionsContext);
+    const { getMonImage } = useContext(MonsContext);
     const monToShow = props.monToShow ? props.monToShow : {"name": "Sunkern"};
 
-    const monImg = getImage(monToShow.name);
+    const monImg = getMonImage(monToShow.name);
     
     var graphicContainer = 
-        <div className={isGoal(monToShow.name) ? "graphic-mon-outer" : "graphic-mon-outer greyed-out"}>
+        <div className={isExclusion(monToShow.name) ? "graphic-mon-outer greyed-out" : "graphic-mon-outer"}>
             <div className="graphic-mon-background"></div>
             <div className="graphic-mon-image">
                 <img src={monImg} alt={monToShow.name}></img>

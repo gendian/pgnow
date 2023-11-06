@@ -1,24 +1,18 @@
 import { useContext } from 'react';
-import { useCookies } from "react-cookie";
 import GraphicMon from "./graphicMon";
-import { GoalsContext } from "../../context/goalsContext";
-const jsonminify = require("jsonminify");
+import { ExclusionsContext } from "../../context/exclusionsContext";
 
 export default function SelectMon(props) {
-    const [cookies, setCookie] = useCookies(["goals"]); 
-    const { goals, toggleGoal, isGoal } = useContext(GoalsContext);
+    const { toggleExclusion, isExclusion } = useContext(ExclusionsContext);
     const monToSelect = props.monToSelect ? props.monToSelect : {"name": "Sunkern"};
 
     var element = 
         <div 
         onClick={() => {            
-            toggleGoal(monToSelect.name);
-            const goalsString = jsonminify(JSON.stringify(goals));
-            console.log(goalsString);
-            setCookie("goals", goalsString, { path: "/" });
+            toggleExclusion(monToSelect.name);
         }}
         className={
-            isGoal(monToSelect.name) ? "mon-selector" : "mon-selector greyed-out"
+            isExclusion(monToSelect.name) ? "mon-selector greyed-out" : "mon-selector"
         }>
             <GraphicMon monToShow={monToSelect}></GraphicMon>
         </div>;

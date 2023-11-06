@@ -1,5 +1,5 @@
 const https = require('https');
-const { generateOptions, parseGitResponse, cacheImage, setGoal } = require('../utils');
+const { generateOptions, parseGitResponse, cachePokemon} = require('../utils');
 
 function scrape_eggs()
 {    
@@ -15,12 +15,11 @@ function scrape_eggs()
       
         // The whole response has been received. Add egg to list.
         apiResponse.on('end', () => {
-            console.log('Fetching eggs');
+            console.log('Fetching eggs from github');
             var content = parseGitResponse(data);
             global.eggs = content;
             content.forEach(function(item) {
-                cacheImage(item.name);
-                setGoal(item.name);
+                cachePokemon(item.name);
             });
         });
     }).on('error', (e) => {

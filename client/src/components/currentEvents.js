@@ -9,7 +9,6 @@ export default function CurrentEvents() {
     const dayInMillis = 8.64e+7;
     const hourInMillis = 3.6e+6;
 
-    // REAL API
     const [events, setEvents] = React.useState(null);
     React.useEffect(() => {
         fetch("/pgnow_api/events")
@@ -20,7 +19,6 @@ export default function CurrentEvents() {
     var currentEvents = [];
     var comingSoon = [];
     let currentTime = new Date().getTime();
-    var count = 0;
     var event_element = <div></div>;
     if (events !== null && events !== undefined) {
         events.sort(function(a,b){return Date.parse(a.end)-Date.parse(b.end)});
@@ -54,7 +52,6 @@ export default function CurrentEvents() {
                     </li>;          
                 currentEvents.push(listItem);
             }
-            count++;
         });
 
         events.sort(function(a,b){return Date.parse(a.start)-Date.parse(b.start)});

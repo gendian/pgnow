@@ -11,13 +11,3 @@ function make_Get_Request(url) {
         .catch(error => reject(error));
     });
   }
-
-  /* example usage
-  make_Get_Request('https://example.com/data')
-    .then(data => {
-      console.log('Response data:', data);
-    })
-    .catch(error => {
-      console.log('Error:', error.message);
-    });
-*/

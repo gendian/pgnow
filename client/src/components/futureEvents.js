@@ -26,7 +26,6 @@ export default function FutureEvents() {
     var leagueEvents = [];
     var futureEvents = [];
     
-    var count = 0;
     let currentTime = new Date().getTime();
     var event_element = <div></div>;
     if (events !== null && events !== undefined) {
@@ -61,8 +60,6 @@ export default function FutureEvents() {
                             </div>
                         </div>
                     </li>;
-                
-                count++;
                 
                 if (distance < weekInMillis) {
                     comingSoon.push(listItem);    

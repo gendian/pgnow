@@ -1,14 +1,13 @@
 const https = require('https');
-const { parse_csv, cacheImage, setGoal } = require('../utils');
+const { parse_csv, cachePokemon } = require('../utils');
 
 async function scrape_wilds()
 {    
-    console.log('Fetching wilds');
+    console.log('Loading wild encounters from CSV');
     var content = await parse_csv("./content/wildSpawns.csv");
     global.wilds = content;
     content.forEach(function(item) {
-        cacheImage(item.name);
-        setGoal(item.name);
+        cachePokemon(item.name);
     });
 }
 

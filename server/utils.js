@@ -5,6 +5,7 @@ const { parse } = require("csv-parse");
 // Note, the `stream/promises` module is only available
 // starting with Node.js version 16
 const { finished } = require('stream/promises');
+const { format } = require('path');
 
 const generateOptions=(_path)=>{
     return options = {
@@ -105,17 +106,38 @@ function formatName(name) {
     return formattedName;
 }
 
-function cacheImage(name) {
-    var formattedName  = formatName(name);
-    global.monMap.set(formattedName, "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png");
+function get_pokemon(name) {
+    var pokemon = global.monCollection.findOne({ 'name': name });
+    return pokemon;
+}
+
+function get_all_pokemon() {
+    var results = [];
+    const mons = global.monCollection.where(function(obj) {
+        return (obj.name !== undefined);
+    });
+    mons.forEach(pokemon => {
+        var simpleMon = {
+            name: pokemon.name,            
+            sprites: {
+                front_default: pokemon.sprites.front_default
+            }
+        }
+        results.push(simpleMon);
+    });
+    return results;
+}
+
+function cachePokemon(name) {
+    const formattedName = formatName(name);
     const options = 'https://pokeapi.co/api/v2/pokemon/' + formattedName;
     https.get(options, function (apiResponse) {
         let data = '';
 
         apiResponse.on('data', (chunk) => {
-          data += chunk;
+        data += chunk;
         });
-      
+    
         apiResponse.on('end', () => {
             var isValidJSON = true;
             try {
@@ -124,49 +146,29 @@ function cacheImage(name) {
                 isValidJSON = false;
             }
             if (isValidJSON) {
-                let mon = JSON.parse(data);
-                global.monMap.set(formattedName, mon.sprites.front_default);
+                const mon = JSON.parse(data);
+                global.monCollection.insert(mon);
             }
         });
     }).on('error', (e) => {
         console.log(e);
-        res.status(500).send(constants.error_message);
-    })
+        const mon = {
+            "name": name,
+            "sprites": {
+                "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png"
+            }
+        };
+        global.monCollection.insert(mon);
+    });
 }
 
-function load_image(name) {
-    var image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png";
-    if (name !== null && name !== undefined) {
-        var formattedName = formatName(name);
-        var imageRetrieved = global.monMap.get(formattedName);
-        if (imageRetrieved !== null && imageRetrieved !== undefined) {
-            image = imageRetrieved;
-        }
-    }
-    return image;
-}
-
-function setGoal(name) {
+function setExclusion(name) {
     var formattedName  = formatName(name);
-    global.goals.push(formattedName);
-}
-
-function load_image_list() {
-    var imageList = {
-        names: [],
-        images: [],
-        goals: global.goals
-    }
-    for (const [key, value] of global.monMap) {  
-        imageList.names.push(key);
-        imageList.images.push(value);
-    }
-    return imageList;
+    global.exclusions.push(formattedName);
 }
 
 async function parse_csv(csvUrl)
 {
-
     // Read and process the CSV file
     const processFile = async () => {
         const records = [];
@@ -190,4 +192,4 @@ async function parse_csv(csvUrl)
     return result;
 }
 
-module.exports = { generateOptions, parseGitResponse, cacheImage, load_image, load_image_list, parse_csv, setGoal }
+module.exports = { generateOptions, parseGitResponse, get_pokemon, get_all_pokemon, cachePokemon, parse_csv, setExclusion }
