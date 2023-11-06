@@ -191,6 +191,7 @@ ul {
 }
 .show-mon-container > div > p {
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 /* --- graphic mon --- */
@@ -239,12 +240,23 @@ ul {
   height: 24px;
   object-fit: cover;
   position: relative;
-  top: -146px;
-  left: 12px;
+  top: -66px;
+  left: 30px;
   background: url("./assets/images/icons/shiny-icon.png") no-repeat center center;
   background-size: contain;
   border-radius: 50%;
 }
+.graphic-mon-noshiny {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  position: relative;
+  top: -66px;
+  left: 30px;
+  background-size: contain;
+  border-radius: 50%;
+}
+
 .graphic-shadow-container {
   width: 34px;
 }
@@ -323,8 +335,17 @@ ul {
   margin-left: 10px;
 }
 
+.mon-selector img {
+  cursor: pointer;
+}
+.mon-selector img:hover {
+  top: -80px;
+  left: -58px;
+  width: 110px;
+  height: 110px;
+}
 .mon-selector.greyed-out .graphic-mon-outer.greyed-out {
-  opacity: 0.5;
+  opacity: 0.25;
   display: block;
 }
 

@@ -12,6 +12,7 @@ export default function GraphicMon(props) {
     var graphicContainer = 
         <div className={isExclusion(monToShow.name) ? "graphic-mon-outer greyed-out" : "graphic-mon-outer"}>
             <div className="graphic-mon-background"></div>
+            <div className="graphic-mon-highlight"></div>
             <div className="graphic-mon-image">
                 <img src={monImg} alt={monToShow.name}></img>
                 {
@@ -19,12 +20,12 @@ export default function GraphicMon(props) {
                     <div className="graphic-mon-shadow"></div> :
                     <div></div>
                 }
-                {
-                    Boolean(monToShow.canBeShiny) ? 
-                    <div className="graphic-mon-shiny"></div> :
-                    <div></div>
-                }
             </div>
+            {
+                Boolean(monToShow.canBeShiny) ? 
+                <div className="graphic-mon-shiny"></div> :
+                <div className="graphic-mon-noshiny"></div>
+            }
             <div className="graphic-mon-text"><p>{monToShow.name}</p></div>           
         </div>
     return graphicContainer;
