@@ -19,7 +19,7 @@
     "csv": "^6.3.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "heroku": "^8.4.3",
+    "heroku": "^9.0.0",
     "jsdom": "21.1.1",
     "lokijs": "^1.5.12",
     "moment": "latest",
